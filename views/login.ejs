@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- favicon -->
+    <link rel="icon" href="images/logo/header-logo.png">
+    <!-- font css -->
+    <link rel="stylesheet" href="css/fonts.css">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- media css -->
+
+    <!-- <link rel="stylesheet" href="/assect/css/media.css">    -->
+     <style>
+        * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Jost';
+    list-style: none;
+}
+
+:root {
+    --heading-color: #262626;
+    --text-color-1: #292F36;
+    --bg-color-body: #F8F9FA;
+    --bg-color-2: #FFFFFF;
+    --text-color-1: #333B44;
+    --text-color-2: #ECEDEE;
+    --btn-color: #102693;
+    --font-family: 'Inter';
+    --lh: 1.5;
+    --fw: 400;
+    --fs: 20px;
+    --gutter-width: 15px;
+}
+
+.w-1 {
+    width: 8.33%;
+}
+
+.w-2 {
+    width: 16.66%;
+}
+
+.w-3 {
+    width: 25%;
+}
+
+.w-4 {
+    width: 33.33%;
+}
+
+.w-5 {
+    width: 41.66%;
+}
+
+.w-6 {
+    width: 50%;
+}
+
+.w-7 {
+    width: 58.33%;
+}
+
+.w-8 {
+    width: 66.66%;
+}
+
+.w-9 {
+    width: 75%;
+}
+
+.w-10 {
+    width: 83.33%;
+}
+
+.w-11 {
+    width: 91.66%;
+}
+
+.w-12 {
+    width: 100%;
+}
+
+.w-1,
+.w-2,
+.w-3,
+.w-4,
+.w-5,
+.w-6,
+.w-7,
+.w-8,
+.w-9,
+.w-10,
+.w-11,
+.w-12 {
+    padding-left: var(--gutter-width);
+    padding-right: var(--gutter-width);
+}
+
+.container {
+    width: 100%;
+
+}
+
+body {
+    background-color: #ffffff;
+    color: var(--secondary-color);
+    font-family: var(--font);
+    font-size: var(--fs);
+    font-weight: var(--fw);
+    line-height: var(--lh);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.display-flex {
+    display: flex;
+}
+
+.align-item {
+    align-items: center;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+.spce-between {
+    justify-content: space-between;
+}
+
+.side-bar {
+    width: 280px;
+    height: 100vh;
+    background-color: var(--bg-color-body);
+    position: fixed;
+    top: 0;
+    left: 0px;
+    border-right: 2px dotted grey;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    overflow-y: scroll;
+    color: #3E4853;
+    font-size: 11px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 800;
+}
+
+.side-bar span {
+    color: rgb(62, 72, 83);
+    font-size: 14px;
+}
+
+/* .side-bar ul li span:hover{
+    color: blue;
+} */
+.side-bar svg:hover {
+    color: lightblue;
+    border: #333B44;
+}
+
+.side-bar.close-sider {
+    width: 80px;
+}
+
+.down {
+    position: relative;
+
+}
+
+.down.di-none {
+    display: none;
+}
+
+.down::before {
+    position: absolute;
+    content: '\27A7';
+    /* right: 5px; */
+    left: 8em;
+    top: 50%;
+    transform: translatey(-50%);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.down1 {
+    position: relative;
+
+}
+
+.down1.di-none {
+    display: none;
+}
+
+.down1::before {
+    position: absolute;
+    content: '\2022';
+    right: 9em;
+    top: 50%;
+    transform: translatey(-50%);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+header {
+    height: 60px;
+    position: fixed;
+    top: 0px;
+    width: calc(100% - 280px);
+    /* left: 0px; */
+    margin-left: 280px;
+    background-color: var(--bg-color-body);
+    padding-top: 14px;
+    z-index: 999;
+}
+
+header.left {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+    transition: 0.5s all ease;
+}
+
+.page-wrapper {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-color-body);
+    color: #333B44;
+    /* margin-left: 230px; */
+
+}
+
+.logo {
+    height: 60px;
+    width: 280px;
+    /* padding-top: 10px; */
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    align-items: center;
+    /* justify-content: center; */
+    /* margin-bottom: 10px; */
+    background-color: var(--bg-color-2);
+    z-index: 9;
+}
+
+.input input {
+    margin-left: 20px;
+    height: 30px;
+    border-radius: 30px;
+    text-align: center;
+    border: 1px solid var(--text-color-1);
+    font-size: 15px;
+}
+
+.search {
+    /* padding-left: 100px; */
+    bottom: 40px;
+    /* top: 50%; */
+}
+
+.head-logo img {
+    border-radius: 50px;
+    height: 40px;
+    width: 40px;
+    margin-top: -10px;
+}
+
+.sidebar-box {
+    width: 200px;
+    border: 1px solid var(--text-color-1);
+    margin-top: 30px;
+    border-radius: 20px;
+}
+
+.sidebar-box.sidebox-none {
+    display: none;
+}
+
+.sidebar-box h5 {
+    text-align: center;
+    font-size: 20px;
+    color: var(--heading-color);
+}
+
+.sidebar-box h6 {
+    text-align: center;
+    font-size: 20px;
+    color: var(--text-color-1);
+    margin-bottom: 20px;
+}
+
+.side-btn {
+    height: 36px;
+    width: 115px;
+    background-color: var(--btn-color);
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+}
+
+.side-btn:hover {
+    transform: scale(1.2);
+    transition: 1s all ease;
+    background-color: blue;
+}
+
+.side-btn span {
+    text-align: center;
+    font-size: 14px;
+    /* padding-left: 14px; */
+    color: var(--text-color-2);
+    padding-top: 3px;
+    justify-content: center;
+    display: flex;
+}
+
+.side .div-icon {
+    /* margin-left: 400px; */
+    margin-top: 20px;
+    list-style: none;
+}
+
+.div-icon ul li {
+    list-style: none;
+    padding-left: 20px;
+}
+
+/* header-dropdown */
+.drop-down {
+    background-color: var(--bg-color-2);
+    color: var(--text-color-1);
+    position: absolute;
+    display: none;
+    font-size: 15px;
+    border-radius: 20px;
+    width: 150px;
+    height: 300px;
+    line-height: 80px;
+    transition: 0.5s all ease-in;
+}
+
+/* .position:hover .drop-down{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s all ease-in;
+}  */
+.position {
+    position: relative;
+}
+
+.toggle-icon.close-sider {
+    width: 80px;
+}
+
+.sidebar-notify {
+    margin-top: 60px;
+    /* padding-left: 40px; */
+}
+
+.sidebar-notify ul li:hover {
+    /* background-color:var(--heading-color); */
+    opacity: trans;
+}
+
+.sidebar-notify ul li a {
+    list-style: none;
+    font-size: 17px;
+    display: block;
+    line-height: 60px;
+    color: var(--text-color-1);
+    /* padding-left: 10px; */
+    text-decoration: none;
+}
+
+.delta li span.di-none {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.side-dropdown {
+    display: none;
+    margin-left: 30px;
+}
+
+/* .side-dropdown li{
+    display: flex;
+    align-items: center;
+} */
+.delta-1 {
+    /* display: flex; */
+    /* align-items: center; */
+}
+
+.docu-box {
+    height: 30px;
+    width: 50px;
+    color: red;
+    background-color: var(--bg-color-2);
+    border: 1px solid red;
+    border-radius: 20px;
+    display: flex;
+    margin: 20px 0px 0px 20px;
+    padding-left: 10px;
+}
+
+/* page-body */
+
+
+.page-body {
+    /* color: blue; */
+    margin-left: 280px;
+    margin-top: 50px;
+    background-color: var(--bg-color-body);
+}
+
+.body-head {
+    width: 230px;
+    /* height: 193px; */
+    background-color: var(--bg-color-body);
+}
+
+.first {
+    width: 100%;
+    height: 300px;
+    background-color: #5968B4;
+}
+
+.page-body.left {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+    transition: 0.5s all ease;
+}
+
+.row-gap {
+    row-gap: 30px;
+}
+
+.col-padding {
+    padding: 30px;
+}
+
+.head-content h4 {
+    font-size: 35px;
+    color: var(--text-color-2);
+    font-weight: 600;
+    padding: 20px 0px 0px 20px;
+    font-family: 'Dancing Script', sans-serif;
+    font-weight: 700;
+}
+
+.head-content p {
+    font-size: 20px;
+    color: var(--text-color-2);
+    padding: 20px 0px 0px 20px;
+}
+
+.btn-2 {
+    height: 35px;
+    width: 250px;
+    background-color: #5968B4;
+    border: 1px solid var(--bg-color-body);
+    color: var(--text-color-2);
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.btn-2:hover {
+    background-color: #3366FF;
+    transform: scale(1.2);
+    transition: 0.5s all ease;
+}
+
+.earning{
+    background-color: var(--bg-color-2);
+    border-radius: 30px;
+    padding: 24px;
+}
+.earning-logo{
+    margin-bottom: 10px;
+}
+.earning h6{
+    display: inline-block;
+    padding-left: 15px;
+
+}
+.earning-chart{
+    width: 100%;
+    background-color: var(--bg-color-body);
+    padding: 10px;
+    border-radius: 12px;
+}
+.customer{
+    width: 730px;
+    height: 400px;
+    background-color: var(--bg-color-2);
+    border-radius: 30px;
+}
+.customer-chart{
+    height: 260px;
+    width: 674px;
+}
+.able-pro{
+    /* height: 710px; */
+    width: 230px;
+    background-color: var(--bg-color-2);
+    border-radius: 30px;
+}
+.able-pro h4{
+    text-align: center;
+    color: var(--heading-color);
+    border-bottom: 1px solid var(--text-color-1);
+    padding: 20px 0px;
+}
+.able-pro h3{
+    /* text-align: center; */
+    font-size: 12px;
+    color: var(--text-color-1);
+    padding-left: 20px;
+    padding-top: 30px;
+}
+.able-pro ul li{
+    list-style: circle;
+    margin-left: 50px;
+    padding: 20px 0;
+}
+.able-pro button{
+    background-color: var(--btn-color);
+    
+    height: 60px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 50px;
+}
+.able-pro button a{
+    color: var(--bg-color-2);
+}
+.projet-overview{
+    height: 180px;
+    width: 700px;
+    background-color: var(--bg-color-2);
+    border-radius: 30px;
+}
+.totalincome{
+    height: 615px;
+    width: 475px;
+    background-color: var(--bg-color-2);
+    border-radius: 30px;
+}
+.transaction{
+    height: 615px;
+    width: 475px;
+    background-color: var(--bg-color-2);
+    border-radius: 30px;
+}
+.item-1{
+    height: 80px;
+    width: 200px;
+    background-color: var(--bg-color-body);
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    /* display: inline-block; */
+    display: flex;
+}
+.item-2{
+    height: 80px;
+    width: 200px;
+    background-color: var(--bg-color-body);
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* login-page */
+
+.form-cotn {
+    background-color: var(--white-color);
+    border: 3px solid #eaeaec;
+}
+.facebook{
+    height: 35px;
+    width: 100%;
+    background-color: var(--bg-color-body);
+    border-radius: 30px;
+}
+.facebook h6{
+    text-align: center;
+    padding-top: 10px;
+    color: var(--text-color-1);
+}
+.twitter{
+    height: 35px;
+    width: 100%;
+    background-color: var(--bg-color-body);
+    border-radius: 30px;
+    margin-top: 20px;
+}
+.twitter h6{
+    text-align: center;
+    padding-top: 10px;
+    color: var(--text-color-1);
+}
+.goggle{
+    height: 35px;
+    width: 100%;
+    background-color: var(--bg-color-body);
+    border-radius: 30px;
+    margin-top: 20px;
+}
+.goggle h6{
+    text-align: center;
+    padding-top: 10px;
+    color: var(--text-color-1);
+}
+
+.form-wrapper {
+    /* width: 100%; */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-title  span{
+    font-size:18px;
+    color: #fff;
+
+}
+
+.form-title {
+    /* background-color: #405189; */
+    /* border-radius: 10px; */
+    /* padding: 15px; */
+    /* width: 100%; */
+    /* vertical-align: middle; */
+}
+.logo-login {
+    width: 50px;
+}
+.from-titel {
+    width: 100px;
+    height: 17px;
+}
+
+.form-title h3 {
+    padding-top: 10px;
+    font-size: 26px;
+    color: #636578;
+}
+
+.form-cont {
+    border: 2px solid #eaeaea;
+    width: 500px;
+    height:auto;
+    padding-right: 70px;
+    padding-left: 70px;
+}
+.form-cont h3{
+    font-size: 24px;
+    color: #636578;
+    padding-bottom: 20px;
+}
+
+
+.form-text input {
+    /* padding: 20px;
+    margin-top: 20px; */
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    border: 2px solid #EAEAEC;
+    /* width: 100%; */
+}
+
+.form-check-label span {
+    color: #636578;
+    cursor: pointer;
+    /* position: absolute; */
+    /* top: 20%; */
+    font-size: 20px;
+}
+
+.remember span {
+    /* padding-top: 10px; */
+    color: #292b66;
+    font-size: 16px
+}
+
+.login-btn a{
+    display: block;
+    background-color: #405189;
+    color: var(--white-color);
+    /* width: 100%; */
+    text-align: center;
+    /* padding: 10px 0; */
+    border-radius: 50px;
+    /* margin: 20px 0; */
+    transition: all 0.3s ease-in-out;
+}
+
+.login-btn a:hover {
+    background-color: transparent;
+    border: 1px solid #405189;
+    color: #405189;
+}
+
+.sign-up-path-3 a{
+    display: block;
+    background-color: #666CFF;
+    color: white;
+    /* width: 100%; */
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 20px;
+    margin: 20px 0px;
+    transition: all 0.3s ease-in-out;
+}
+
+.sign-up-path-3 a:hover {
+    background-color: transparent;
+    border: 1px solid #244ed8;
+    color: #5b75cd;
+}
+
+.sign-up-path text a {
+    margin-top: 10px;
+}
+
+.revenue,.revenue{
+    width: 236px;
+    height: 237px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 12px;
+
+}
+.revenue-c{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.revenue-c h4{
+    color: var(--text-color-2);
+    font-size: 24px;
+}
+
+.revenue-c span{
+    color: #FE615D;
+    font-size: 18px;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+.revenue-c p{
+    color: #828393 !important;
+}
+
+.jvectormap-container {
+    background: #df4931 !important;
+    min-height: 750px;
+}
+
+.jvectormap-label {
+    position: absolute;
+    display: none;
+    border: solid 1px #CDCDCD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #292929;
+    color: white;
+    font-family: sans-serif, Verdana;
+    font-size: smaller;
+    padding: 3px;
+}
+
+.jvectormap-zoomin, .jvectormap-zoomout {
+    position: absolute;
+    left: 10px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #292929;
+    padding: 3px;
+    color: white;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    line-height: 10px;
+    text-align: center;
+}
+
+.jvectormap-zoomin {
+    top: 10px;
+}
+
+.jvectormap-zoomout {
+    top: 30px;
+}
+
+#map{
+    width: 100%;
+    height: 100%;
+    min-height: 750px;
+}
+
+     </style>
+</head>
+
+<body>
+    <div class="form-wrapper">
+        <div class="form-cont">
+            <svg width="66" height="28" viewBox="0 0 66 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M52.7694 1.05138V7H51.6023V0.0922266H52.6774L52.7694 1.05138ZM56.1835 2.54084V2.63768C56.1835 3.00044 56.1383 3.33707 56.0479 3.64756C55.9608 3.95498 55.83 4.22398 55.6557 4.45455C55.4846 4.68204 55.2731 4.85881 55.0213 4.98485C54.7695 5.11089 54.4789 5.17391 54.1496 5.17391C53.8235 5.17391 53.5378 5.11704 53.2924 5.00329C53.0503 4.88647 52.8453 4.722 52.6774 4.50988C52.5095 4.29776 52.3739 4.04875 52.2706 3.76285C52.1705 3.47387 52.0995 3.15722 52.0575 2.81291V2.43939C52.0995 2.07356 52.1705 1.74155 52.2706 1.44335C52.3739 1.14515 52.5095 0.88845 52.6774 0.673254C52.8453 0.458059 53.0503 0.292051 53.2924 0.175231C53.5346 0.0584102 53.817 0 54.1399 0C54.4692 0 54.7614 0.0614844 55.0164 0.184453C55.2715 0.304348 55.4862 0.476504 55.6605 0.700922C55.8349 0.922266 55.9656 1.18972 56.0528 1.50329C56.14 1.81379 56.1835 2.15964 56.1835 2.54084ZM55.0164 2.63768V2.54084C55.0164 2.31028 54.9938 2.09662 54.9486 1.89987C54.9034 1.70004 54.8324 1.52481 54.7356 1.37418C54.6387 1.22354 54.5144 1.10672 54.3627 1.02372C54.2142 0.937637 54.035 0.894598 53.8251 0.894598C53.6185 0.894598 53.4409 0.928415 53.2924 0.996047C53.1439 1.06061 53.0196 1.1513 52.9195 1.26812C52.8194 1.38494 52.742 1.52174 52.6871 1.67852C52.6322 1.83224 52.5934 1.99978 52.5708 2.18116V3.07576C52.6096 3.2971 52.6758 3.5 52.7694 3.68445C52.863 3.86891 52.9954 4.01647 53.1665 4.12714C53.3408 4.23474 53.5636 4.28854 53.8348 4.28854C54.0447 4.28854 54.2238 4.2455 54.3723 4.15942C54.5209 4.07334 54.6419 3.95498 54.7356 3.80435C54.8324 3.65064 54.9034 3.47387 54.9486 3.27404C54.9938 3.07422 55.0164 2.8621 55.0164 2.63768Z"
+                    fill="#3366FF"></path>
+                <path
+                    d="M58.5466 1.04216V5.08169H57.3795V0.0922266H58.4933L58.5466 1.04216ZM60.1496 0.0599473L60.1399 1.09289C60.0688 1.08059 59.9914 1.07137 59.9074 1.06522C59.8267 1.05907 59.746 1.05599 59.6653 1.05599C59.4651 1.05599 59.2892 1.08366 59.1374 1.139C58.9857 1.19126 58.8582 1.26812 58.7548 1.36957C58.6548 1.46794 58.5773 1.58783 58.5224 1.72925C58.4675 1.87066 58.4352 2.02899 58.4255 2.20422L58.1592 2.22266C58.1592 1.90909 58.1915 1.61858 58.256 1.35112C58.3206 1.08366 58.4175 0.848485 58.5466 0.645586C58.679 0.442688 58.8436 0.284365 59.0406 0.170619C59.2407 0.0568731 59.4716 0 59.7331 0C59.8041 0 59.88 0.00614844 59.9607 0.0184453C60.0446 0.0307422 60.1076 0.0445762 60.1496 0.0599473Z"
+                    fill="#3366FF"></path>
+                <path
+                    d="M60.7305 2.64229V2.53623C60.7305 2.17655 60.7854 1.843 60.8951 1.53557C61.0049 1.22508 61.1631 0.956083 61.3697 0.72859C61.5796 0.498024 61.8346 0.319719 62.1349 0.193676C62.4384 0.0645586 62.7806 0 63.1615 0C63.5457 0 63.888 0.0645586 64.1882 0.193676C64.4917 0.319719 64.7484 0.498024 64.9582 0.72859C65.1681 0.956083 65.3279 1.22508 65.4376 1.53557C65.5474 1.843 65.6023 2.17655 65.6023 2.53623V2.64229C65.6023 3.00198 65.5474 3.33553 65.4376 3.64295C65.3279 3.95037 65.1681 4.21937 64.9582 4.44993C64.7484 4.67743 64.4933 4.85573 64.1931 4.98485C63.8928 5.11089 63.5522 5.17391 63.1712 5.17391C62.787 5.17391 62.4432 5.11089 62.1397 4.98485C61.8395 4.85573 61.5844 4.67743 61.3746 4.44993C61.1647 4.21937 61.0049 3.95037 60.8951 3.64295C60.7854 3.33553 60.7305 3.00198 60.7305 2.64229ZM61.8976 2.53623V2.64229C61.8976 2.86671 61.9218 3.07883 61.9702 3.27866C62.0187 3.47848 62.0945 3.65371 62.1978 3.80435C62.3012 3.95498 62.4335 4.07334 62.5949 4.15942C62.7564 4.2455 62.9485 4.28854 63.1712 4.28854C63.3875 4.28854 63.5748 4.2455 63.733 4.15942C63.8944 4.07334 64.0268 3.95498 64.1301 3.80435C64.2334 3.65371 64.3093 3.47848 64.3577 3.27866C64.4094 3.07883 64.4352 2.86671 64.4352 2.64229V2.53623C64.4352 2.31489 64.4094 2.10584 64.3577 1.90909C64.3093 1.70927 64.2318 1.5325 64.1253 1.37879C64.0219 1.22508 63.8896 1.10518 63.7282 1.0191C63.57 0.929952 63.3811 0.885375 63.1615 0.885375C62.942 0.885375 62.7515 0.929952 62.5901 1.0191C62.4319 1.10518 62.3012 1.22508 62.1978 1.37879C62.0945 1.5325 62.0187 1.70927 61.9702 1.90909C61.9218 2.10584 61.8976 2.31489 61.8976 2.53623Z"
+                    fill="#3366FF"></path>
+                <path
+                    d="M13.524 24.248H6.188L5.012 27.72H0L7.112 8.064H12.656L19.768 27.72H14.7L13.524 24.248ZM12.292 20.552L9.856 13.356L7.448 20.552H12.292Z"
+                    fill="#3366FF"></path>
+                <path
+                    d="M27.2805 14.308C27.7285 13.58 28.3725 12.992 29.2125 12.544C30.0525 12.096 31.0139 11.872 32.0965 11.872C33.3845 11.872 34.5512 12.1987 35.5965 12.852C36.6419 13.5053 37.4632 14.4387 38.0605 15.652C38.6765 16.8653 38.9845 18.2747 38.9845 19.88C38.9845 21.4853 38.6765 22.904 38.0605 24.136C37.4632 25.3493 36.6419 26.292 35.5965 26.964C34.5512 27.6173 33.3845 27.944 32.0965 27.944C30.9952 27.944 30.0339 27.7293 29.2125 27.3C28.3912 26.852 27.7472 26.264 27.2805 25.536V27.72H22.4925V7H27.2805V14.308ZM34.1125 19.88C34.1125 18.6853 33.7765 17.752 33.1045 17.08C32.4512 16.3893 31.6392 16.044 30.6685 16.044C29.7165 16.044 28.9045 16.3893 28.2325 17.08C27.5792 17.7707 27.2525 18.7133 27.2525 19.908C27.2525 21.1027 27.5792 22.0453 28.2325 22.736C28.9045 23.4267 29.7165 23.772 30.6685 23.772C31.6205 23.772 32.4325 23.4267 33.1045 22.736C33.7765 22.0267 34.1125 21.0747 34.1125 19.88Z"
+                    fill="#3366FF"></path>
+                <path d="M46.8444 7V27.72H42.0564V7H46.8444Z" fill="#3366FF"></path>
+                <path
+                    d="M65.6022 19.656C65.6022 20.104 65.5742 20.5707 65.5182 21.056H54.6822C54.7569 22.0267 55.0649 22.7733 55.6062 23.296C56.1662 23.8 56.8476 24.052 57.6502 24.052C58.8449 24.052 59.6756 23.548 60.1423 22.54H65.2383C64.9769 23.5667 64.5009 24.4907 63.8103 25.312C63.1383 26.1333 62.2889 26.7773 61.2622 27.244C60.2356 27.7107 59.0876 27.944 57.8182 27.944C56.2876 27.944 54.9249 27.6173 53.7302 26.964C52.5356 26.3107 51.6022 25.3773 50.9302 24.164C50.2582 22.9507 49.9222 21.532 49.9222 19.908C49.9222 18.284 50.2489 16.8653 50.9022 15.652C51.5742 14.4387 52.5076 13.5053 53.7022 12.852C54.8969 12.1987 56.2689 11.872 57.8182 11.872C59.3302 11.872 60.6743 12.1893 61.8503 12.824C63.0262 13.4587 63.9409 14.364 64.5943 15.54C65.2663 16.716 65.6022 18.088 65.6022 19.656ZM60.7022 18.396C60.7022 17.5747 60.4222 16.9213 59.8622 16.436C59.3022 15.9507 58.6022 15.708 57.7622 15.708C56.9596 15.708 56.2783 15.9413 55.7183 16.408C55.1769 16.8747 54.8409 17.5373 54.7102 18.396H60.7022Z"
+                    fill="#3366FF"></path>
+            </svg>
+            <div class="facebook">
+                <a href="https://www.facebook.com/">
+                <h6>Sign In With Facebook</h6>
+                </a>
+            </div>
+            <div class="twitter">
+                <a href="https://twitter.com/i/flow/login">
+                    <h6>Sign In With twitter</h6>
+                </a>
+            </div>
+            <div class="goggle">
+                <a href="https://myaccount.google.com/?utm_source=sign_in_no_continue&pli=1">
+                    <h6>Sign In With goggle</h6>
+                </a>
+            </div>
+            
+            <div class="form-title d-flex justify-center">
+                <img src="assect/img/favicon/logo.png" alt=""><span>Materialize</span>
+            </div>
+            <div class="form-text">
+                <form action="#">
+                    <div class="user-name rel">
+                        <input type="text" placeholder="Username">
+                        <a href="javascript:void(0)" class="abs">
+                            <i class="fa-solid fa-user"></i>
+                        </a>
+                    </div>
+                    <div class="password rel">
+                        <input type="password" placeholder="Password">
+                        <a href="javascript:void(0)" class="abs">
+                            <i class="fa-solid fa-fingerprint"></i>
+                        </a>
+                    </div>
+                    <div class="login-btn flex align-items center">
+                        <a href="index.html">
+                            LOGIN
+                        </a>
+                    </div>
+
+                    <div class="sign-up-path text">
+                        <p>Don't have Account ? Please <a href="#"></a></p>
+                    </div>
+
+                    <div class="sign-up-path-3 flex align-items center">
+                        <a href="sign-up.html">
+                            sign-up
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="../views/js/jquery-3.7.1.min.js"></script>
+</body>
+
+</html>

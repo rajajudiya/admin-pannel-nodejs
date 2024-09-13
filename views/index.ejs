@@ -1,0 +1,2188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Pannel</title>
+    <!-- feather-icon -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- media-query -->
+    <meta charset="UTF-8">
+    </meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </meta>
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- media-query -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Jost:ital,wght@0,800;1,800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Jost';
+    list-style: none;
+}
+
+:root {
+    --heading-color: #262626;
+    --text-color-1: #292F36;
+    --bg-color-body: #F8F9FA;
+    --bg-color-2: #FFFFFF;
+    --text-color-1: #333B44;
+    --text-color-2: #ECEDEE;
+    --btn-color: #102693;
+    --font-family: 'Inter';
+    --lh: 1.5;
+    --fw: 400;
+    --fs: 20px;
+    --gutter-width: 15px;
+}
+
+.w-1 {
+    width: 8.33%;
+}
+
+.w-2 {
+    width: 16.66%;
+}
+
+.w-3 {
+    width: 25%;
+}
+
+.w-4 {
+    width: 33.33%;
+}
+
+.w-5 {
+    width: 41.66%;
+}
+
+.w-6 {
+    width: 50%;
+}
+
+.w-7 {
+    width: 58.33%;
+}
+
+.w-8 {
+    width: 66.66%;
+}
+
+.w-9 {
+    width: 75%;
+}
+
+.w-10 {
+    width: 83.33%;
+}
+
+.w-11 {
+    width: 91.66%;
+}
+
+.w-12 {
+    width: 100%;
+}
+
+.w-1,
+.w-2,
+.w-3,
+.w-4,
+.w-5,
+.w-6,
+.w-7,
+.w-8,
+.w-9,
+.w-10,
+.w-11,
+.w-12 {
+    padding-left: var(--gutter-width);
+    padding-right: var(--gutter-width);
+}
+
+.container {
+    width: 100%;
+
+}
+
+body {
+    background-color: #ffffff;
+    color: var(--secondary-color);
+    font-family: var(--font);
+    font-size: var(--fs);
+    font-weight: var(--fw);
+    line-height: var(--lh);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.display-flex {
+    display: flex;
+}
+
+.align-item {
+    align-items: center;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+.spce-between {
+    justify-content: space-between;
+}
+
+.side-bar {
+    width: 280px;
+    height: 100vh;
+    background-color: var(--bg-color-body);
+    position: fixed;
+    top: 0;
+    left: 0px;
+    border-right: 2px dotted grey;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    overflow-y: scroll;
+    color: #3E4853;
+    font-size: 11px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 800;
+}
+
+.side-bar span {
+    color: rgb(62, 72, 83);
+    font-size: 14px;
+}
+
+/* .side-bar ul li span:hover{
+    color: blue;
+} */
+.side-bar svg:hover {
+    color: lightblue;
+    border: #333B44;
+}
+
+.side-bar.close-sider {
+    width: 80px;
+}
+
+.down {
+    position: relative;
+
+}
+
+.down.di-none {
+    display: none;
+}
+
+.down::before {
+    position: absolute;
+    content: '\27A7';
+    /* right: 5px; */
+    left: 8em;
+    top: 50%;
+    transform: translatey(-50%);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.down1 {
+    position: relative;
+
+}
+
+.down1.di-none {
+    display: none;
+}
+
+.down1::before {
+    position: absolute;
+    content: '\2022';
+    right: 9em;
+    top: 50%;
+    transform: translatey(-50%);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+header {
+    height: 60px;
+    position: fixed;
+    top: 0px;
+    width: calc(100% - 280px);
+    /* left: 0px; */
+    margin-left: 280px;
+    background-color: var(--bg-color-body);
+    padding-top: 14px;
+    z-index: 999;
+}
+
+header.left {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+    transition: 0.5s all ease;
+}
+
+.page-wrapper {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-color-body);
+    color: #333B44;
+    /* margin-left: 230px; */
+
+}
+
+.logo {
+    height: 60px;
+    width: 280px;
+    /* padding-top: 10px; */
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    align-items: center;
+    /* justify-content: center; */
+    /* margin-bottom: 10px; */
+    background-color: var(--bg-color-2);
+    z-index: 9;
+}
+
+.input input {
+    margin-left: 20px;
+    height: 30px;
+    border-radius: 30px;
+    text-align: center;
+    border: 1px solid var(--text-color-1);
+    font-size: 15px;
+}
+
+.search {
+    /* padding-left: 100px; */
+    bottom: 40px;
+    /* top: 50%; */
+}
+
+.head-logo img {
+    border-radius: 50px;
+    height: 40px;
+    width: 40px;
+    margin-top: -10px;
+}
+
+.sidebar-box {
+    width: 200px;
+    border: 1px solid var(--text-color-1);
+    margin-top: 30px;
+    border-radius: 20px;
+}
+
+.sidebar-box.sidebox-none {
+    display: none;
+}
+
+.sidebar-box h5 {
+    text-align: center;
+    font-size: 20px;
+    color: var(--heading-color);
+}
+
+.sidebar-box h6 {
+    text-align: center;
+    font-size: 20px;
+    color: var(--text-color-1);
+    margin-bottom: 20px;
+}
+
+.side-btn {
+    height: 36px;
+    width: 115px;
+    background-color: var(--btn-color);
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+}
+
+.side-btn:hover {
+    transform: scale(1.2);
+    transition: 1s all ease;
+    background-color: blue;
+}
+
+.side-btn span {
+    text-align: center;
+    font-size: 14px;
+    /* padding-left: 14px; */
+    color: var(--text-color-2);
+    padding-top: 3px;
+    justify-content: center;
+    display: flex;
+}
+
+.side .div-icon {
+    /* margin-left: 400px; */
+    margin-top: 20px;
+    list-style: none;
+}
+
+.div-icon ul li {
+    list-style: none;
+    padding-left: 20px;
+}
+
+/* header-dropdown */
+.drop-down {
+    background-color: var(--bg-color-2);
+    color: var(--text-color-1);
+    position: absolute;
+    display: none;
+    font-size: 15px;
+    border-radius: 20px;
+    width: 150px;
+    height: 300px;
+    line-height: 80px;
+    transition: 0.5s all ease-in;
+}
+
+/* .position:hover .drop-down{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s all ease-in;
+}  */
+.position {
+    position: relative;
+}
+
+.toggle-icon.close-sider {
+    width: 80px;
+}
+
+.sidebar-notify {
+    margin-top: 60px;
+    /* padding-left: 40px; */
+}
+
+.sidebar-notify ul li:hover {
+    /* background-color:var(--heading-color); */
+    opacity: trans;
+}
+
+.sidebar-notify ul li a {
+    list-style: none;
+    font-size: 17px;
+    display: block;
+    line-height: 60px;
+    color: var(--text-color-1);
+    /* padding-left: 10px; */
+    text-decoration: none;
+}
+
+.delta li span.di-none {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.side-dropdown {
+    display: none;
+    margin-left: 30px;
+}
+
+/* .side-dropdown li{
+    display: flex;
+    align-items: center;
+} */
+
+
+.docu-box {
+    height: 30px;
+    width: 50px;
+    color: red;
+    background-color: var(--bg-color-2);
+    border: 1px solid red;
+    border-radius: 20px;
+    display: flex;
+    margin: 20px 0px 0px 20px;
+    padding-left: 10px;
+}
+
+/* page-body */
+
+
+.page-body {
+    /* color: blue; */
+    margin-left: 280px;
+    margin-top: 50px;
+    background-color: var(--bg-color-body);
+}
+
+.body-head {
+    width: 230px;
+    /* height: 193px; */
+    background-color: var(--bg-color-body);
+}
+
+.first {
+    width: 100%;
+    height: 300px;
+    background-color: #5968B4;
+}
+
+.page-body.left {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+    transition: 0.5s all ease;
+}
+
+.row-gap {
+    row-gap: 30px;
+}
+
+.col-padding {
+    padding: 30px;
+}
+
+.head-content h4 {
+    font-size: 35px;
+    color: var(--text-color-2);
+    font-weight: 600;
+    padding: 20px 0px 0px 20px;
+    font-family: 'Dancing Script', sans-serif;
+    font-weight: 700;
+}
+
+.head-content p {
+    font-size: 20px;
+    color: var(--text-color-2);
+    padding: 20px 0px 0px 20px;
+}
+
+.btn-2 {
+    height: 35px;
+    width: 250px;
+    background-color: #5968B4;
+    border: 1px solid var(--bg-color-body);
+    color: var(--text-color-2);
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.btn-2:hover {
+    background-color: #3366FF;
+    transform: scale(1.2);
+    transition: 0.5s all ease;
+}
+
+.earning{
+    background-color: var(--bg-color-2);
+    border-radius: 30px;
+    padding: 24px;
+}
+.earning-logo{
+    margin-bottom: 10px;
+}
+.earning h6{
+    display: inline-block;
+    padding-left: 15px;
+
+}
+.earning-chart{
+    width: 100%;
+    background-color: var(--bg-color-body);
+    padding: 10px;
+    border-radius: 12px;
+}
+.customer{
+    width: 730px;
+    height: 400px;
+    background-color: var(--bg-color-2);
+    border-radius: 30px;
+}
+.customer-chart{
+    height: 260px;
+    width: 674px;
+}
+.able-pro{
+    /* height: 710px; */
+    width: 230px;
+    background-color: var(--bg-color-2);
+    border-radius: 30px;
+}
+.able-pro h4{
+    text-align: center;
+    color: var(--heading-color);
+    border-bottom: 1px solid var(--text-color-1);
+    padding: 20px 0px;
+}
+.able-pro h3{
+    /* text-align: center; */
+    font-size: 12px;
+    color: var(--text-color-1);
+    padding-left: 20px;
+    padding-top: 30px;
+}
+.able-pro ul li{
+    list-style: circle;
+    margin-left: 50px;
+    padding: 20px 0;
+}
+.able-pro button{
+    background-color: var(--btn-color);
+    
+    height: 60px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 50px;
+}
+.able-pro button a{
+    color: var(--bg-color-2);
+}
+.projet-overview{
+    height: 180px;
+    width: 700px;
+    background-color: var(--bg-color-2);
+    border-radius: 30px;
+}
+.totalincome{
+    height: 615px;
+    width: 475px;
+    background-color: var(--bg-color-2);
+    border-radius: 30px;
+}
+.transaction{
+    height: 615px;
+    width: 475px;
+    background-color: var(--bg-color-2);
+    border-radius: 30px;
+}
+.item-1{
+    height: 80px;
+    width: 200px;
+    background-color: var(--bg-color-body);
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    /* display: inline-block; */
+    display: flex;
+}
+.item-2{
+    height: 80px;
+    width: 200px;
+    background-color: var(--bg-color-body);
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* login-page */
+
+.form-cotn {
+    background-color: var(--white-color);
+    border: 3px solid #eaeaec;
+}
+.facebook{
+    height: 35px;
+    width: 100%;
+    background-color: var(--bg-color-body);
+    border-radius: 30px;
+}
+.facebook h6{
+    text-align: center;
+    padding-top: 10px;
+    color: var(--text-color-1);
+}
+.twitter{
+    height: 35px;
+    width: 100%;
+    background-color: var(--bg-color-body);
+    border-radius: 30px;
+    margin-top: 20px;
+}
+.twitter h6{
+    text-align: center;
+    padding-top: 10px;
+    color: var(--text-color-1);
+}
+.goggle{
+    height: 35px;
+    width: 100%;
+    background-color: var(--bg-color-body);
+    border-radius: 30px;
+    margin-top: 20px;
+}
+.goggle h6{
+    text-align: center;
+    padding-top: 10px;
+    color: var(--text-color-1);
+}
+
+.form-wrapper {
+    /* width: 100%; */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-title  span{
+    font-size:18px;
+    color: #fff;
+
+}
+
+.logo-login {
+    width: 50px;
+}
+.from-titel {
+    width: 100px;
+    height: 17px;
+}
+
+.form-title h3 {
+    padding-top: 10px;
+    font-size: 26px;
+    color: #636578;
+}
+
+.form-cont {
+    border: 2px solid #eaeaea;
+    width: 500px;
+    height:auto;
+    padding-right: 70px;
+    padding-left: 70px;
+}
+.form-cont h3{
+    font-size: 24px;
+    color: #636578;
+    padding-bottom: 20px;
+}
+
+
+.form-text input {
+    /* padding: 20px;
+    margin-top: 20px; */
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    border: 2px solid #EAEAEC;
+    /* width: 100%; */
+}
+
+.form-check-label span {
+    color: #636578;
+    cursor: pointer;
+    /* position: absolute; */
+    /* top: 20%; */
+    font-size: 20px;
+}
+
+.remember span {
+    /* padding-top: 10px; */
+    color: #292b66;
+    font-size: 16px
+}
+
+.login-btn a{
+    display: block;
+    background-color: #405189;
+    color: var(--white-color);
+    /* width: 100%; */
+    text-align: center;
+    /* padding: 10px 0; */
+    border-radius: 50px;
+    /* margin: 20px 0; */
+    transition: all 0.3s ease-in-out;
+}
+
+.login-btn a:hover {
+    background-color: transparent;
+    border: 1px solid #405189;
+    color: #405189;
+}
+
+.sign-up-path-3 a{
+    display: block;
+    background-color: #666CFF;
+    color: white;
+    /* width: 100%; */
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 20px;
+    margin: 20px 0px;
+    transition: all 0.3s ease-in-out;
+}
+
+.sign-up-path-3 a:hover {
+    background-color: transparent;
+    border: 1px solid #244ed8;
+    color: #5b75cd;
+}
+
+.sign-up-path text a {
+    margin-top: 10px;
+}
+
+.revenue,.revenue{
+    width: 236px;
+    height: 237px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 12px;
+
+}
+.revenue-c{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.revenue-c h4{
+    color: var(--text-color-2);
+    font-size: 24px;
+}
+
+.revenue-c span{
+    color: #FE615D;
+    font-size: 18px;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+.revenue-c p{
+    color: #828393 !important;
+}
+
+.jvectormap-container {
+    background: #df4931 !important;
+    min-height: 750px;
+}
+
+.jvectormap-label {
+    position: absolute;
+    display: none;
+    border: solid 1px #CDCDCD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #292929;
+    color: white;
+    font-family: sans-serif, Verdana;
+    font-size: smaller;
+    padding: 3px;
+}
+
+.jvectormap-zoomin, .jvectormap-zoomout {
+    position: absolute;
+    left: 10px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #292929;
+    padding: 3px;
+    color: white;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    line-height: 10px;
+    text-align: center;
+}
+
+.jvectormap-zoomin {
+    top: 10px;
+}
+
+.jvectormap-zoomout {
+    top: 30px;
+}
+
+#map{
+    width: 100%;
+    height: 100%;
+    min-height: 750px;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="side-bar display-flex">
+        <div class="sidebar-notify">
+            <div class="logo display-flex ">
+                <svg width="66" height="28" viewBox="0 0 66 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M52.7694 1.05138V7H51.6023V0.0922266H52.6774L52.7694 1.05138ZM56.1835 2.54084V2.63768C56.1835 3.00044 56.1383 3.33707 56.0479 3.64756C55.9608 3.95498 55.83 4.22398 55.6557 4.45455C55.4846 4.68204 55.2731 4.85881 55.0213 4.98485C54.7695 5.11089 54.4789 5.17391 54.1496 5.17391C53.8235 5.17391 53.5378 5.11704 53.2924 5.00329C53.0503 4.88647 52.8453 4.722 52.6774 4.50988C52.5095 4.29776 52.3739 4.04875 52.2706 3.76285C52.1705 3.47387 52.0995 3.15722 52.0575 2.81291V2.43939C52.0995 2.07356 52.1705 1.74155 52.2706 1.44335C52.3739 1.14515 52.5095 0.88845 52.6774 0.673254C52.8453 0.458059 53.0503 0.292051 53.2924 0.175231C53.5346 0.0584102 53.817 0 54.1399 0C54.4692 0 54.7614 0.0614844 55.0164 0.184453C55.2715 0.304348 55.4862 0.476504 55.6605 0.700922C55.8349 0.922266 55.9656 1.18972 56.0528 1.50329C56.14 1.81379 56.1835 2.15964 56.1835 2.54084ZM55.0164 2.63768V2.54084C55.0164 2.31028 54.9938 2.09662 54.9486 1.89987C54.9034 1.70004 54.8324 1.52481 54.7356 1.37418C54.6387 1.22354 54.5144 1.10672 54.3627 1.02372C54.2142 0.937637 54.035 0.894598 53.8251 0.894598C53.6185 0.894598 53.4409 0.928415 53.2924 0.996047C53.1439 1.06061 53.0196 1.1513 52.9195 1.26812C52.8194 1.38494 52.742 1.52174 52.6871 1.67852C52.6322 1.83224 52.5934 1.99978 52.5708 2.18116V3.07576C52.6096 3.2971 52.6758 3.5 52.7694 3.68445C52.863 3.86891 52.9954 4.01647 53.1665 4.12714C53.3408 4.23474 53.5636 4.28854 53.8348 4.28854C54.0447 4.28854 54.2238 4.2455 54.3723 4.15942C54.5209 4.07334 54.6419 3.95498 54.7356 3.80435C54.8324 3.65064 54.9034 3.47387 54.9486 3.27404C54.9938 3.07422 55.0164 2.8621 55.0164 2.63768Z"
+                        fill="#3366FF"></path>
+                    <path
+                        d="M58.5466 1.04216V5.08169H57.3795V0.0922266H58.4933L58.5466 1.04216ZM60.1496 0.0599473L60.1399 1.09289C60.0688 1.08059 59.9914 1.07137 59.9074 1.06522C59.8267 1.05907 59.746 1.05599 59.6653 1.05599C59.4651 1.05599 59.2892 1.08366 59.1374 1.139C58.9857 1.19126 58.8582 1.26812 58.7548 1.36957C58.6548 1.46794 58.5773 1.58783 58.5224 1.72925C58.4675 1.87066 58.4352 2.02899 58.4255 2.20422L58.1592 2.22266C58.1592 1.90909 58.1915 1.61858 58.256 1.35112C58.3206 1.08366 58.4175 0.848485 58.5466 0.645586C58.679 0.442688 58.8436 0.284365 59.0406 0.170619C59.2407 0.0568731 59.4716 0 59.7331 0C59.8041 0 59.88 0.00614844 59.9607 0.0184453C60.0446 0.0307422 60.1076 0.0445762 60.1496 0.0599473Z"
+                        fill="#3366FF"></path>
+                    <path
+                        d="M60.7305 2.64229V2.53623C60.7305 2.17655 60.7854 1.843 60.8951 1.53557C61.0049 1.22508 61.1631 0.956083 61.3697 0.72859C61.5796 0.498024 61.8346 0.319719 62.1349 0.193676C62.4384 0.0645586 62.7806 0 63.1615 0C63.5457 0 63.888 0.0645586 64.1882 0.193676C64.4917 0.319719 64.7484 0.498024 64.9582 0.72859C65.1681 0.956083 65.3279 1.22508 65.4376 1.53557C65.5474 1.843 65.6023 2.17655 65.6023 2.53623V2.64229C65.6023 3.00198 65.5474 3.33553 65.4376 3.64295C65.3279 3.95037 65.1681 4.21937 64.9582 4.44993C64.7484 4.67743 64.4933 4.85573 64.1931 4.98485C63.8928 5.11089 63.5522 5.17391 63.1712 5.17391C62.787 5.17391 62.4432 5.11089 62.1397 4.98485C61.8395 4.85573 61.5844 4.67743 61.3746 4.44993C61.1647 4.21937 61.0049 3.95037 60.8951 3.64295C60.7854 3.33553 60.7305 3.00198 60.7305 2.64229ZM61.8976 2.53623V2.64229C61.8976 2.86671 61.9218 3.07883 61.9702 3.27866C62.0187 3.47848 62.0945 3.65371 62.1978 3.80435C62.3012 3.95498 62.4335 4.07334 62.5949 4.15942C62.7564 4.2455 62.9485 4.28854 63.1712 4.28854C63.3875 4.28854 63.5748 4.2455 63.733 4.15942C63.8944 4.07334 64.0268 3.95498 64.1301 3.80435C64.2334 3.65371 64.3093 3.47848 64.3577 3.27866C64.4094 3.07883 64.4352 2.86671 64.4352 2.64229V2.53623C64.4352 2.31489 64.4094 2.10584 64.3577 1.90909C64.3093 1.70927 64.2318 1.5325 64.1253 1.37879C64.0219 1.22508 63.8896 1.10518 63.7282 1.0191C63.57 0.929952 63.3811 0.885375 63.1615 0.885375C62.942 0.885375 62.7515 0.929952 62.5901 1.0191C62.4319 1.10518 62.3012 1.22508 62.1978 1.37879C62.0945 1.5325 62.0187 1.70927 61.9702 1.90909C61.9218 2.10584 61.8976 2.31489 61.8976 2.53623Z"
+                        fill="#3366FF"></path>
+                    <path
+                        d="M13.524 24.248H6.188L5.012 27.72H0L7.112 8.064H12.656L19.768 27.72H14.7L13.524 24.248ZM12.292 20.552L9.856 13.356L7.448 20.552H12.292Z"
+                        fill="#3366FF"></path>
+                    <path
+                        d="M27.2805 14.308C27.7285 13.58 28.3725 12.992 29.2125 12.544C30.0525 12.096 31.0139 11.872 32.0965 11.872C33.3845 11.872 34.5512 12.1987 35.5965 12.852C36.6419 13.5053 37.4632 14.4387 38.0605 15.652C38.6765 16.8653 38.9845 18.2747 38.9845 19.88C38.9845 21.4853 38.6765 22.904 38.0605 24.136C37.4632 25.3493 36.6419 26.292 35.5965 26.964C34.5512 27.6173 33.3845 27.944 32.0965 27.944C30.9952 27.944 30.0339 27.7293 29.2125 27.3C28.3912 26.852 27.7472 26.264 27.2805 25.536V27.72H22.4925V7H27.2805V14.308ZM34.1125 19.88C34.1125 18.6853 33.7765 17.752 33.1045 17.08C32.4512 16.3893 31.6392 16.044 30.6685 16.044C29.7165 16.044 28.9045 16.3893 28.2325 17.08C27.5792 17.7707 27.2525 18.7133 27.2525 19.908C27.2525 21.1027 27.5792 22.0453 28.2325 22.736C28.9045 23.4267 29.7165 23.772 30.6685 23.772C31.6205 23.772 32.4325 23.4267 33.1045 22.736C33.7765 22.0267 34.1125 21.0747 34.1125 19.88Z"
+                        fill="#3366FF"></path>
+                    <path d="M46.8444 7V27.72H42.0564V7H46.8444Z" fill="#3366FF"></path>
+                    <path
+                        d="M65.6022 19.656C65.6022 20.104 65.5742 20.5707 65.5182 21.056H54.6822C54.7569 22.0267 55.0649 22.7733 55.6062 23.296C56.1662 23.8 56.8476 24.052 57.6502 24.052C58.8449 24.052 59.6756 23.548 60.1423 22.54H65.2383C64.9769 23.5667 64.5009 24.4907 63.8103 25.312C63.1383 26.1333 62.2889 26.7773 61.2622 27.244C60.2356 27.7107 59.0876 27.944 57.8182 27.944C56.2876 27.944 54.9249 27.6173 53.7302 26.964C52.5356 26.3107 51.6022 25.3773 50.9302 24.164C50.2582 22.9507 49.9222 21.532 49.9222 19.908C49.9222 18.284 50.2489 16.8653 50.9022 15.652C51.5742 14.4387 52.5076 13.5053 53.7022 12.852C54.8969 12.1987 56.2689 11.872 57.8182 11.872C59.3302 11.872 60.6743 12.1893 61.8503 12.824C63.0262 13.4587 63.9409 14.364 64.5943 15.54C65.2663 16.716 65.6022 18.088 65.6022 19.656ZM60.7022 18.396C60.7022 17.5747 60.4222 16.9213 59.8622 16.436C59.3022 15.9507 58.6022 15.708 57.7622 15.708C56.9596 15.708 56.2783 15.9413 55.7183 16.408C55.1769 16.8747 54.8409 17.5373 54.7102 18.396H60.7022Z"
+                        fill="#3366FF"></path>
+                </svg>
+            </div>
+            <ul class="delta">
+                <li>
+                    <span>DASHBOARD</span>
+                </li>
+                <li class="delta-1">
+                    <a href="#" class="btn-1">
+                        <!-- <i data-feather="menu"></i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="m20.04 6.822-5.76-4.03c-1.57-1.1-3.98-1.04-5.49.13l-5.01 3.91c-1 .78-1.79 2.38-1.79 3.64v6.9c0 2.55 2.07 4.63 4.62 4.63h10.78c2.55 0 4.62-2.07 4.62-4.62v-6.78c0-1.35-.87-3.01-1.97-3.78Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M16.83 11.27a.707.707 0 0 0-.38-.38.646.646 0 0 0-.27-.05h-1.86c-.39 0-.7.31-.7.7 0 .39.31.7.7.7h.18l-2.11 2.11-1.02-1.52a.712.712 0 0 0-.51-.31.676.676 0 0 0-.56.2L7.32 15.7c-.27.27-.27.71 0 .99.14.14.31.2.49.2s.36-.07.49-.2l2.38-2.38 1.02 1.52c.12.17.3.29.51.31.22.02.41-.05.56-.2l2.72-2.72v.18c0 .39.31.7.7.7.39 0 .7-.31.7-.7v-1.86a.764.764 0 0 0-.06-.27Z"
+                                fill="currentColor">
+
+                            </path>
+                        </svg>
+                        <span class="down">Dashboard</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li class="down1">
+                            <a href="#">Default</a>
+                        </li>
+                        <li class="down1"><a href="#">Analystics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M21.04 7.19 12 12.42 2.96 7.19c.4-.74.98-1.39 1.63-1.75l5.34-2.96c1.14-.64 3-.64 4.14 0l5.34 2.96c.65.36 1.23 1.01 1.63 1.75Z"
+                                fill="currentColor"></path>
+                            <path opacity=".6"
+                                d="M12 12.421v9.58c-.75 0-1.5-.16-2.07-.48l-5.34-2.96c-1.21-.67-2.2-2.35-2.2-3.73v-5.66c0-.64.22-1.34.57-1.98l9.04 5.23Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M21.61 9.171v5.66c0 1.38-.99 3.06-2.2 3.73l-5.34 2.96c-.57.32-1.32.48-2.07.48v-9.58l9.04-5.23c.35.64.57 1.34.57 1.98Z"
+                                fill="currentColor">
+
+                            </path>
+                        </svg>
+                        <span>Components</span>
+                    </a>
+                </li>
+                <li>
+                    <span>WIDGET</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M16.42 7.951a6.253 6.253 0 0 1 0 8.84 6.253 6.253 0 0 1-8.84 0 6.253 6.253 0 0 1 0-8.84 6.253 6.253 0 0 1 8.84 0Z"
+                                fill="currentColor"></path>
+                            <path opacity=".4"
+                                d="M8.25 22.389c-.09 0-.19-.02-.28-.05-2.25-.9-4.07-2.49-5.29-4.59a10.6 10.6 0 0 1-1.341-6.73c.05-.41.44-.7.84-.65.41.05.7.43.65.84-.26 2.02.14 4.02 1.15 5.78a9.104 9.104 0 0 0 4.54 3.94c.38.16.57.59.42.98-.11.3-.4.48-.69.48ZM5.85 5.23c-.22 0-.44-.1-.59-.29-.26-.33-.2-.8.13-1.05C7.3 2.4 9.58 1.61 12 1.61c2.36 0 4.61.76 6.5 2.2A.749.749 0 1 1 17.59 5 9.111 9.111 0 0 0 12 3.11c-2.08 0-4.05.68-5.69 1.96-.14.11-.3.16-.46.16ZM15.75 22.39c-.3 0-.58-.18-.7-.47a.76.76 0 0 1 .42-.98c1.93-.78 3.5-2.14 4.54-3.94a9.044 9.044 0 0 0 1.15-5.78c-.05-.41.24-.79.65-.84.4-.05.79.24.84.65.3 2.35-.16 4.68-1.34 6.73-1.21 2.1-3.04 3.68-5.29 4.59-.08.02-.17.04-.27.04Z"
+                                fill="currentColor">
+
+                            </path>
+                        </svg>
+                        <span>Statistics</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M19.9 13.5H4.1c-1.5 0-2.1.64-2.1 2.23v4.04C2 21.36 2.6 22 4.1 22h15.8c1.5 0 2.1-.64 2.1-2.23v-4.04c0-1.59-.6-2.23-2.1-2.23Z"
+                                fill="currentColor"></path>
+                            <path opacity=".4"
+                                d="M12.9 2H4.1C2.6 2 2 2.64 2 4.23v4.04c0 1.59.6 2.23 2.1 2.23h8.8c1.5 0 2.1-.64 2.1-2.23V4.23C15 2.64 14.4 2 12.9 2Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span>Data</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4" d="M21 2v12.1c0 1.9-1 2.9-2.9 2.9H5.9C4 17 3 16 3 14.1V2h18Z"
+                                fill="currentColor"></path>
+
+                            <path
+                                d="M22 2.75H2c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h20c.41 0 .75.34.75.75s-.34.75-.75.75ZM16.67 22.34c-.13.26-.4.41-.67.41-.11 0-.23-.03-.33-.08L12 20.84l-3.67 1.83c-.1.05-.22.08-.33.08-.27 0-.54-.15-.67-.41a.74.74 0 0 1 .34-1.01l3.58-1.79V17h1.5v2.54l3.58 1.79c.38.18.53.63.34 1.01ZM7.5 11.75a.75.75 0 0 1-.48-1.33l3.15-2.63c.29-.24.66-.34 1.01-.28.36.06.67.28.86.6l1.05 1.75 2.93-2.44a.75.75 0 0 1 1.06.1c.27.32.22.79-.1 1.06l-3.15 2.63c-.29.24-.66.34-1.01.28-.36-.06-.67-.28-.86-.6l-1.05-1.75-2.93 2.44c-.14.11-.31.17-.48.17Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span>Chart</span>
+                    </a>
+                </li>
+                <li>
+                    <span>APPLICATIONS</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="m18.47 16.83.39 3.16c.1.83-.79 1.41-1.5.98l-4.19-2.49c-.46 0-.91-.03-1.35-.09A4.86 4.86 0 0 0 13 15.23c0-2.84-2.46-5.14-5.5-5.14-1.16 0-2.23.33-3.12.91-.03-.25-.04-.5-.04-.76C4.34 5.69 8.29 2 13.17 2S22 5.69 22 10.24c0 2.7-1.39 5.09-3.53 6.59Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M13 15.23c0 1.19-.44 2.29-1.18 3.16-.99 1.2-2.56 1.97-4.32 1.97l-2.61 1.55c-.44.27-1-.1-.94-.61l.25-1.97C2.86 18.4 2 16.91 2 15.23c0-1.76.94-3.31 2.38-4.23.89-.58 1.96-.91 3.12-.91 3.04 0 5.5 2.3 5.5 5.14Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span>Chat</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M8 1.25a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0V2A.75.75 0 0 1 8 1.25ZM16 1.25a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0V2a.75.75 0 0 1 .75-.75Z"
+                                fill="currentColor"></path>
+                            <path opacity=".4"
+                                d="M21.5 8.37v8.76c0 .16-.01.32-.02.47H2.52c-.01-.15-.02-.31-.02-.47V8.37A4.87 4.87 0 0 1 7.37 3.5h9.26a4.87 4.87 0 0 1 4.87 4.87Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M21.48 17.602a4.876 4.876 0 0 1-4.85 4.4H7.37c-2.53 0-4.61-1.93-4.85-4.4h18.96ZM13.53 11.622c.45-.31.73-.77.73-1.39 0-1.3-1.04-1.97-2.26-1.97-1.22 0-2.27.67-2.27 1.97 0 .62.29 1.09.73 1.39-.61.36-.96.94-.96 1.62 0 1.24.95 2.01 2.5 2.01 1.54 0 2.5-.77 2.5-2.01 0-.68-.35-1.27-.97-1.62ZM12 9.502c.52 0 .9.29.9.79 0 .49-.38.8-.9.8s-.9-.31-.9-.8c0-.5.38-.79.9-.79Zm0 4.5c-.66 0-1.14-.33-1.14-.93 0-.6.48-.92 1.14-.92.66 0 1.14.33 1.14.92 0 .6-.48.93-1.14.93Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span>Calender</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M10.5 19.9V4.1c0-1.5-.64-2.1-2.23-2.1H4.23C2.64 2 2 2.6 2 4.1v15.8c0 1.5.64 2.1 2.23 2.1h4.04c1.59 0 2.23-.6 2.23-2.1Z"
+                                fill="currentColor"></path>
+                            <path opacity=".4"
+                                d="M22 12.9V4.1c0-1.5-.64-2.1-2.23-2.1h-4.04c-1.59 0-2.23.6-2.23 2.1v8.8c0 1.5.64 2.1 2.23 2.1h4.04c1.59 0 2.23-.6 2.23-2.1Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span>Kanben</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="btn-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M9 2C6.38 2 4.25 4.13 4.25 6.75c0 2.57 2.01 4.65 4.63 4.74.08-.01.16-.01.22 0h.07a4.738 4.738 0 0 0 4.58-4.74C13.75 4.13 11.62 2 9 2Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M14.08 14.149c-2.79-1.86-7.34-1.86-10.15 0-1.27.85-1.97 2-1.97 3.23s.7 2.37 1.96 3.21c1.4.94 3.24 1.41 5.08 1.41 1.84 0 3.68-.47 5.08-1.41 1.26-.85 1.96-1.99 1.96-3.23-.01-1.23-.7-2.37-1.96-3.21Z"
+                                fill="currentColor"></path>
+                            <path opacity=".4"
+                                d="M19.99 7.338c.16 1.94-1.22 3.64-3.13 3.87h-.05c-.06 0-.12 0-.17.02-.97.05-1.86-.26-2.53-.83 1.03-.92 1.62-2.3 1.5-3.8a4.64 4.64 0 0 0-.77-2.18 3.592 3.592 0 0 1 5.15 2.92Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M21.988 16.59c-.08.97-.7 1.81-1.74 2.38-1 .55-2.26.81-3.51.78.72-.65 1.14-1.46 1.22-2.32.1-1.24-.49-2.43-1.67-3.38-.67-.53-1.45-.95-2.3-1.26 2.21-.64 4.99-.21 6.7 1.17.92.74 1.39 1.67 1.3 2.63Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="down">Customer</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li class="down1"><a href="#">List</a></li>
+                        <li class="down1"><a href="#">Cards</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="btn-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M3.67 2.5v11.97c0 .98.46 1.91 1.25 2.5l5.21 3.9c1.11.83 2.64.83 3.75 0l5.21-3.9c.79-.59 1.25-1.52 1.25-2.5V2.5H3.67Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M22 3.25H2c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h20c.41 0 .75.34.75.75s-.34.75-.75.75ZM16 8.75H8c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h8c.41 0 .75.34.75.75s-.34.75-.75.75ZM16 13.75H8c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h8c.41 0 .75.34.75.75s-.34.75-.75.75Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="down">Invoice</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li class="down1"><a href="#">Create</a></li>
+                        <li class="down1"><a href="#">Details</a></li>
+                        <li class="down1"><a href="#">List</a></li>
+                        <li class="down1"><a href="#">Edit</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="btn-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M22 7.81v8.38c0 2.81-1.29 4.74-3.56 5.47-.66.23-1.42.34-2.25.34H7.81c-.83 0-1.59-.11-2.25-.34C3.29 20.93 2 19 2 16.19V7.81C2 4.17 4.17 2 7.81 2h8.38C19.83 2 22 4.17 22 7.81Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M18.439 21.659c-.66.23-1.42.34-2.25.34h-8.38c-.83 0-1.59-.11-2.25-.34.35-2.64 3.11-4.69 6.44-4.69 3.33 0 6.09 2.05 6.44 4.69ZM15.582 11.58c0 1.98-1.6 3.59-3.58 3.59s-3.58-1.61-3.58-3.59c0-1.98 1.6-3.58 3.58-3.58s3.58 1.6 3.58 3.58Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="down">Profile</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li class="down1"><a href="#">User Profile</a></li>
+                        <li class="down1"><a href="#">Account Profile</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="btn-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M16.49 22H7.51C4 22 3.24 19.99 3.53 17.53l.9-7.5C4.66 8.09 5 6.5 8.4 6.5h7.2c3.4 0 3.74 1.59 3.97 3.53l.75 6.25.15 1.25.03.24c.21 2.35-.61 4.23-4.01 4.23Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M16 8.75c-.41 0-.75-.34-.75-.75V4.5c0-1.08-.67-1.75-1.75-1.75h-3c-1.08 0-1.75.67-1.75 1.75V8c0 .41-.34.75-.75.75s-.75-.34-.75-.75V4.5c0-1.91 1.34-3.25 3.25-3.25h3c1.91 0 3.25 1.34 3.25 3.25V8c0 .41-.34.75-.75.75ZM20.5 17.771c-.03.01-.06.01-.09.01H8a.749.749 0 1 1 0-1.5h12.32l.15 1.25.03.24Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="down">E-commerce</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li class="down1"><a href="#">Product</a></li>
+                        <li class="down1"><a href="#">Product Details</a></li>
+                        <li class="down1"><a href="#">Product List</a></li>
+                        <li class="down1"><a href="#">add New Product</a></li>
+                        <li class="down1"><a href="#">Checkout</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span>FORMS & TABLE</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M15 22c-.41 0-.75-.34-.75-.75V2.75c0-.41.34-.75.75-.75s.75.34.75.75v18.5c0 .41-.34.75-.75.75Z"
+                                fill="currentColor"></path>
+                            <path opacity=".4"
+                                d="M6.5 20h6V4h-6c-2.21 0-4 1.79-4 4v8c0 2.21 1.79 4 4 4ZM18 20h-3V4h3c2.21 0 4 1.79 4 4v8c0 2.21-1.79 4-4 4Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M5.75 13c-.13 0-.26-.03-.38-.08s-.23-.12-.33-.21c-.09-.1-.16-.21-.22-.33a.986.986 0 0 1-.07-.38c0-.26.11-.52.29-.71l.15-.12c.06-.04.12-.07.18-.09.06-.03.12-.05.18-.06.34-.07.68.04.91.27.18.19.29.45.29.71 0 .13-.03.26-.08.38s-.12.23-.21.33c-.1.09-.21.16-.33.21-.12.05-.25.08-.38.08ZM9.25 13c-.13 0-.26-.03-.38-.08s-.23-.12-.33-.21a.99.99 0 0 1-.21-1.09c.05-.13.12-.23.21-.33.37-.37 1.04-.37 1.42 0 .18.19.29.45.29.71 0 .13-.03.26-.08.38s-.12.23-.21.33c-.1.09-.21.16-.33.21-.12.05-.25.08-.38.08Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span>Forms Validation</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M3.762 7.22v9.57c0 1.96 2.13 3.19 3.83 2.21l4.15-2.39 4.15-2.4c1.7-.98 1.7-3.43 0-4.41l-4.15-2.4-4.15-2.39c-1.7-.98-3.83.24-3.83 2.21Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M20.238 18.93c-.41 0-.75-.34-.75-.75V5.82c0-.41.34-.75.75-.75s.75.34.75.75v12.36c0 .41-.33.75-.75.75Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span>Forms Wizard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="btn-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M19.9 13.5H4.1c-1.5 0-2.1.64-2.1 2.23v4.04C2 21.36 2.6 22 4.1 22h15.8c1.5 0 2.1-.64 2.1-2.23v-4.04c0-1.59-.6-2.23-2.1-2.23Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M19.9 2H4.1C2.6 2 2 2.64 2 4.23v4.04c0 1.59.6 2.23 2.1 2.23h15.8c1.5 0 2.1-.64 2.1-2.23V4.23C22 2.64 21.4 2 19.9 2Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="down">Layout</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li class="down1"><a href="#">Basic</a></li>
+                        <li class="down1"><a href="#">Multi Column</a></li>
+                        <li class="down1"><a href="#">Action Bar</a></li>
+                        <li class="down1"><a href="#">Sticky Bar</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="btn-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M15 4H9C6.24 4 4 6.24 4 9v6c0 2.76 2.24 5 5 5h6c2.76 0 5-2.24 5-5V9c0-2.76-2.24-5-5-5Zm2.26 10.26c0 1.66-1.34 3-3 3H9.74c-1.66 0-3-1.34-3-3V9.74c0-1.66 1.34-3 3-3h4.51c1.66 0 3 1.34 3 3v4.52h.01Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M9.06 2.75V4H9c-.5 0-.98.07-1.44.21V2.75a.749.749 0 1 1 1.5 0ZM12.75 2.75V4h-1.5V2.75c0-.41.34-.75.75-.75s.75.34.75.75ZM16.45 2.75v1.46C15.99 4.07 15.5 4 15 4h-.05V2.75c0-.41.34-.75.75-.75s.75.34.75.75ZM22 8.3c0 .42-.33.75-.75.75H20V9c0-.5-.07-.99-.21-1.45h1.46c.42 0 .75.34.75.75ZM22 12c0 .41-.33.75-.75.75H20v-1.5h1.25c.42 0 .75.33.75.75ZM22 15.7c0 .41-.33.75-.75.75h-1.46c.14-.46.21-.95.21-1.45v-.05h1.25c.42 0 .75.33.75.75ZM16.45 19.79v1.46c0 .41-.34.75-.75.75s-.75-.34-.75-.75V20H15c.5 0 .99-.07 1.45-.21ZM12.76 20v1.25a.749.749 0 1 1-1.5 0V20h1.5ZM9.06 20v1.25a.749.749 0 1 1-1.5 0v-1.46c.46.14.94.21 1.44.21h.06ZM4.21 7.55C4.07 8.01 4 8.5 4 9v.05H2.75a.749.749 0 1 1 0-1.5h1.46ZM4 11.25v1.5H2.75a.749.749 0 1 1 0-1.5H4ZM4.21 16.45H2.75a.749.749 0 1 1 0-1.5H4V15c0 .5.07.99.21 1.45ZM14.26 6.738H9.74c-1.66 0-3 1.34-3 3v4.51c0 1.66 1.34 3 3 3h4.51c1.66 0 3-1.34 3-3v-4.51c.01-1.65-1.34-3-2.99-3Zm-.67 6.3-.94 1.64c-.14.24-.39.38-.65.38a.754.754 0 0 1-.65-1.12l.68-1.18h-.59c-.48 0-.87-.21-1.08-.57-.21-.36-.19-.81.04-1.22l.94-1.64c.21-.36.67-.48 1.02-.28.36.21.48.67.28 1.02l-.68 1.18h.59c.48 0 .87.21 1.08.57.22.36.2.8-.04 1.22Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="down">Plugins</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li class="down1"><a href="#">Mask</a></li>
+                        <li class="down1"><a href="#">Clipboard</a></li>
+                        <li class="down1"><a href="#">reCaptcha</a></li>
+                        <li class="down1"><a href="#">Editor</a></li>
+                        <li class="down1"><a href="#">Dropzone</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="btn-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81v8.37C2 19.83 4.17 22 7.81 22h8.37c3.64 0 5.81-2.17 5.81-5.81V7.81C22 4.17 19.83 2 16.19 2Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M15.75 9.75h-7.5c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h7.5c.41 0 .75.34.75.75s-.34.75-.75.75ZM15.75 15.75h-7.5c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h7.5c.41 0 .75.34.75.75s-.34.75-.75.75Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="down">React Table</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li class="down1"><a href="#">Basic</a></li>
+                        <li class="down1"><a href="#">Sorting</a></li>
+                        <li class="down1"><a href="#">Filtering</a></li>
+                        <li class="down1"><a href="#">Grouping</a></li>
+                        <li class="down1"><a href="#">Row Selection</a></li>
+                        <li class="down1"><a href="#">Expanding</a></li>
+                        <li class="down1"><a href="#">Editable</a></li>
+                        <li class="down1"><a href="#">Drag and Drop</a></li>
+                        <li class="down1"><a href="#">Column Hiding</a></li>
+                        <li class="down1"><a href="#">Column Resizing</a></li>
+                        <li class="down1"><a href="#">Sticky</a></li>
+                        <li class="down1"><a href="#">Umberlla</a></li>
+                        <li class="down1"><a href="#">Empty</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="btn-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M17.498 17.828h-1.85c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h1.85c.41 0 .75.34.75.75s-.34.75-.75.75ZM12.97 17.828H6.5c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h6.47a.749.749 0 1 1 0 1.5ZM17.499 14.07h-5.53c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h5.53c.41 0 .75.34.75.75s-.34.75-.75.75ZM9.27 14.07H6.5c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h2.77c.41 0 .75.34.75.75s-.34.75-.75.75Z"
+                                fill="currentColor"></path>
+                            <path opacity=".4"
+                                d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81v8.37C2 19.83 4.17 22 7.81 22h8.37c3.64 0 5.81-2.17 5.81-5.81V7.81C22 4.17 19.83 2 16.19 2Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="down">MUI table</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li class="down1"><a href="#">Basic</a></li>
+                        <li class="down1"><a href="#">Dense</a></li>
+                        <li class="down1"><a href="#">Enchanced</a></li>
+                        <li class="down1"><a href="#">Datatable</a></li>
+                        <li class="down1"><a href="#">Custom</a></li>
+                        <li class="down1"><a href="#">Fixed Header</a></li>
+                        <li class="down1"><a href="#">Collapse</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span>CHARTS AND MAPS</span>
+                </li>
+                <li>
+                    <a href="#" class="btn-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M21.67 6.95c-.64-2.17-2.45-3.98-4.62-4.62-1.65-.48-2.79-.44-3.58.15-.95.71-1.06 1.99-1.06 2.9v2.49c0 2.46 1.12 3.71 3.32 3.71h2.87c.9 0 2.19-.11 2.9-1.06.61-.78.66-1.92.17-3.57Z"
+                                fill="currentColor"></path>
+                            <path opacity=".4"
+                                d="M18.91 13.361c-.26-.3-.64-.47-1.03-.47H14.3c-1.76 0-3.19-1.43-3.19-3.19v-3.58c0-.39-.17-.77-.47-1.03-.29-.26-.69-.38-1.07-.33-2.35.3-4.51 1.59-5.92 3.53-1.42 1.95-1.94 4.33-1.49 6.71.65 3.44 3.4 6.19 6.85 6.84.55.11 1.1.16 1.65.16 1.81 0 3.56-.56 5.05-1.65 1.94-1.41 3.23-3.57 3.53-5.92.05-.39-.07-.78-.33-1.07Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="down">Charts</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li class="down1"><a href="#">Apex chart</a></li>
+                        <li class="down1"><a href="#">Organisation chart</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span>PAGES</span>
+                </li>
+                <li>
+                    <a href="#" class="btn-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M18.328 5.67 6.588 17.41c-.44.44-1.18.38-1.54-.14-1.24-1.81-1.97-3.95-1.97-6.15V6.73c0-.82.62-1.75 1.38-2.06l5.57-2.28a5.12 5.12 0 0 1 3.92 0l4.04 1.65c.67.27.84 1.13.34 1.63Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M19.27 7.042c.65-.55 1.64-.08 1.64.77v3.31c0 4.89-3.55 9.47-8.4 10.81-.33.09-.69.09-1.03 0a11.3 11.3 0 0 1-3.87-1.95c-.48-.37-.53-1.07-.11-1.5 2.18-2.23 8.56-8.73 11.77-11.44Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="down">Authentication</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li class="down1"><a href="#">Authentication 1</a></li>
+                        <li class="down1"><a href="#">Authentication 2</a></li>
+                        <li class="down1"><a href="#">Authentication 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="btn-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M8.5 18.969H8c-4 0-6-1-6-6v-5c0-4 2-6 6-6h8c4 0 6 2 6 6v5c0 4-2 6-6 6h-.5c-.31 0-.61.15-.8.4l-1.5 2c-.66.88-1.74.88-2.4 0l-1.5-2c-.16-.22-.52-.4-.8-.4Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M8 13.45c-.19 0-.38-.07-.53-.22l-2-2a.754.754 0 0 1 0-1.06l2-2c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06L7.06 10.7l1.47 1.47c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22ZM16 13.45c-.19 0-.38-.07-.53-.22a.754.754 0 0 1 0-1.06l1.47-1.47-1.47-1.47a.754.754 0 0 1 0-1.06c.29-.29.77-.29 1.06 0l2 2c.29.29.29.77 0 1.06l-2 2c-.15.15-.34.22-.53.22ZM11 13.78a.745.745 0 0 1-.69-1.05l2-4.67c.16-.38.6-.56.99-.39.38.16.56.6.39.99l-2 4.67c-.12.28-.4.45-.69.45Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="down">Maintenance</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li class="down1"><a href="#">Error 404</a></li>
+                        <li class="down1"><a href="#">Error 500</a></li>
+                        <li class="down1"><a href="#">Coming Soon</a></li>
+                        <li class="down1"><a href="#">Under Construction</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="btn-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81v8.37C2 19.83 4.17 22 7.81 22h8.37c3.64 0 5.81-2.17 5.81-5.81V7.81C22 4.17 19.83 2 16.19 2Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="m14.26 12-1.51-.53V8.08h.36c.81 0 1.47.71 1.47 1.58 0 .41.34.75.75.75s.75-.34.75-.75c0-1.7-1.33-3.08-2.97-3.08h-.36V6c0-.41-.34-.75-.75-.75s-.75.34-.75.75v.58h-.65c-1.48 0-2.69 1.25-2.69 2.78 0 1.79 1.04 2.36 1.83 2.64l1.51.53v3.38h-.36c-.81 0-1.47-.71-1.47-1.58 0-.41-.34-.75-.75-.75s-.75.34-.75.75c0 1.7 1.33 3.08 2.97 3.08h.36V18c0 .41.34.75.75.75s.75-.34.75-.75v-.58h.65c1.48 0 2.69-1.25 2.69-2.78-.01-1.8-1.05-2.37-1.83-2.64Zm-4.02-1.41c-.51-.18-.82-.35-.82-1.22 0-.71.53-1.28 1.19-1.28h.65v2.86l-1.02-.36Zm3.16 5.33h-.65v-2.86l1.01.35c.51.18.82.35.82 1.22 0 .71-.53 1.29-1.18 1.29Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="down">Price</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li class="down1"><a href="#">Price 1</a></li>
+                        <li class="down1"><a href="#">Price 2</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M18 18.862h-.76c-.8 0-1.56.31-2.12.87l-1.71 1.69c-.78.77-2.05.77-2.83 0l-1.71-1.69c-.56-.56-1.33-.87-2.12-.87H6c-1.66 0-3-1.33-3-2.97V4.982c0-1.64 1.34-2.97 3-2.97h12c1.66 0 3 1.33 3 2.97v10.91c0 1.63-1.34 2.97-3 2.97Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M10.38 14.51H7.7c-.44 0-.85-.21-1.11-.57-.25-.34-.31-.76-.19-1.16.35-1.07 1.21-1.65 1.97-2.17.8-.54 1.25-.88 1.25-1.46a.939.939 0 1 0-1.88 0c0 .41-.34.75-.75.75s-.75-.34-.75-.75c0-1.34 1.09-2.44 2.44-2.44 1.35 0 2.44 1.09 2.44 2.44 0 1.41-1.06 2.13-1.91 2.71-.53.36-1.03.7-1.28 1.15h2.44c.41 0 .75.34.75.75s-.33.75-.74.75ZM16.04 14.509c-.41 0-.75-.34-.75-.75v-.69h-1.97c-.49 0-.94-.26-1.19-.68-.25-.43-.25-.96 0-1.38.68-1.17 1.47-2.5 2.19-3.66.32-.51.93-.74 1.5-.58.57.17.97.69.96 1.29v3.52H17c.41 0 .75.34.75.75s-.34.75-.75.75h-.21v.69c0 .41-.33.74-.75.74Zm-.75-5.87c-.59.96-1.2 1.99-1.75 2.93h1.75v-2.93Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span>Contact US</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M9.959 14.039v-1.11c0-.43-.32-.64-.71-.47l-5.01 2.16c-.79.34-1.43-.08-1.43-.93v-1.32c0-.68.51-1.47 1.14-1.73l5.7-2.45c.16-.08.3-.29.3-.47v-3.06c0-.96.71-2.11 1.56-2.55.3-.15.66-.15.96 0 .86.44 1.57 1.58 1.57 2.54v3.06c0 .18.14.39.3.47l1.04.44-5.42 5.42Z"
+                                fill="currentColor"></path>
+                            <path opacity=".4"
+                                d="M21.19 12.371v1.32c0 .85-.64 1.27-1.43.93l-5.01-2.16c-.4-.16-.71.04-.71.47v2.91c0 .23.13.56.3.72l2.32 2.33c.24.24.35.72.24 1.05l-.45 1.36c-.2.59-.87.86-1.42.59l-2.38-2c-.36-.31-.95-.31-1.31 0l-2.38 2c-.55.28-1.22 0-1.4-.59l-.45-1.36c-.11-.34 0-.81.24-1.05l2.32-2.33c.16-.16.29-.49.29-.72v-1.8l5.42-5.42 4.67 2.01c.63.27 1.14 1.06 1.14 1.74Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span>Landing</span>
+                    </a>
+                </li>
+                <li>
+                    <span>OTHERS</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M21 7v10c0 3-1.5 5-5 5H9c1.21-.91 2-2.37 2-4 0-2.76-2.24-5-5-5-1.13 0-2.17.37-3 1V7c0-3 1.5-5 5-5h8c3.5 0 5 2 5 5Z"
+                                fill="currentColor"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M14.5 3.75a.75.75 0 0 1 .75.75v2c0 .686.564 1.25 1.25 1.25h2a.75.75 0 0 1 0 1.5h-2a2.756 2.756 0 0 1-2.75-2.75v-2a.75.75 0 0 1 .75-.75Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M6 13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5Zm-.84 6.27c.25.25.25.66 0 .92-.13.13-.29.19-.46.19-.17 0-.33-.06-.46-.19l-1.73-1.73a.658.658 0 0 1 0-.92l1.73-1.73c.25-.25.66-.25.92 0 .25.25.25.66 0 .92L3.89 18l1.27 1.27Zm4.32-.81-1.73 1.73c-.13.13-.29.19-.46.19-.17 0-.33-.06-.46-.19a.658.658 0 0 1 0-.92L8.1 18l-1.27-1.27a.658.658 0 0 1 0-.92c.25-.25.66-.25.92 0l1.73 1.73c.25.26.25.66 0 .92Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span>Sample Page</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="btn-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 4.75c-.1 0-.2-.01-.29-.03-.1-.02-.19-.05-.28-.08-.09-.04-.18-.09-.26-.14-.08-.06-.16-.12-.23-.19A1.499 1.499 0 0 1 11.17 2c.08-.05.17-.1.26-.13.09-.04.18-.07.28-.09A1.499 1.499 0 1 1 12 4.75ZM12 9.25c-.1 0-.2-.01-.29-.03-.1-.02-.19-.05-.28-.08-.09-.04-.18-.09-.26-.14-.08-.06-.16-.12-.23-.19a1.499 1.499 0 0 1 .23-2.31c.08-.05.17-.1.26-.13a1.417 1.417 0 0 1 1.14 0c.09.03.18.08.26.13a1.499 1.499 0 0 1 .23 2.31c-.07.07-.15.13-.23.19-.08.05-.17.1-.26.14-.09.03-.18.06-.28.08-.09.02-.19.03-.29.03ZM12 13.25c-.1 0-.2-.01-.29-.03-.1-.02-.19-.05-.28-.08-.09-.04-.18-.09-.26-.14-.08-.06-.16-.12-.23-.19a1.454 1.454 0 0 1-.41-.77 1.499 1.499 0 0 1 .41-1.35c.07-.07.15-.13.23-.19.08-.05.17-.1.26-.14.09-.03.18-.06.28-.08a1.499 1.499 0 0 1 1.76 1.76c-.02.1-.05.19-.09.28a1.264 1.264 0 0 1-.32.49c-.07.07-.15.13-.23.19-.08.05-.17.1-.26.14-.09.03-.18.06-.28.08-.09.02-.19.03-.29.03Z"
+                                fill="currentColor"></path>
+                            <path opacity=".6"
+                                d="M12 16.751c-.26 0-.52-.11-.71-.29-.18-.19-.29-.45-.29-.71 0-.26.11-.52.29-.71.23-.23.58-.33.9-.27.07.01.13.03.19.06.06.02.12.05.17.09.06.04.11.08.16.12.18.19.29.45.29.71 0 .26-.11.52-.29.71-.05.04-.1.08-.16.12-.05.04-.11.07-.17.09-.06.03-.12.05-.19.06-.06.01-.13.02-.19.02Z"
+                                fill="currentColor"></path>
+                            <path opacity=".4"
+                                d="M12 20a.776.776 0 0 1-.53-.22.633.633 0 0 1-.16-.24.75.75 0 1 1 .69.46Z"
+                                fill="currentColor"></path>
+                            <path opacity=".2"
+                                d="M12 22.07a.47.47 0 0 1-.35-.15.47.47 0 0 1-.15-.35.501.501 0 0 1 1 0c0 .13-.05.26-.15.35a.47.47 0 0 1-.35.15Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M3.5 9.25a1.499 1.499 0 0 1-1.06-2.56c.55-.56 1.56-.56 2.12 0A1.499 1.499 0 0 1 4.33 9c-.08.05-.17.1-.26.13a1.357 1.357 0 0 1-.57.12ZM20.5 9.25c-.39 0-.78-.16-1.06-.44S19 8.14 19 7.75c0-.1.01-.2.03-.29.02-.1.05-.19.08-.28.04-.09.09-.18.14-.26.06-.08.12-.16.19-.23s.15-.13.23-.19c.08-.05.17-.1.26-.13a1.417 1.417 0 0 1 1.14 0c.09.03.18.08.26.13.08.06.16.12.23.19s.13.15.19.23c.05.08.1.17.13.26a1.358 1.358 0 0 1 .12.57A1.499 1.499 0 0 1 21.33 9c-.08.05-.17.1-.26.14-.09.03-.18.06-.28.08-.1.02-.19.03-.29.03Z"
+                                fill="currentColor"></path>
+                            <path opacity=".6"
+                                d="M20.5 12.749c-.06 0-.13-.01-.19-.02a.603.603 0 0 1-.19-.06.757.757 0 0 1-.18-.09c-.05-.03-.1-.08-.15-.12-.04-.05-.09-.1-.12-.15a.757.757 0 0 1-.09-.18.636.636 0 0 1-.06-.18c-.01-.07-.02-.13-.02-.2 0-.26.11-.52.29-.71l.15-.12c.06-.04.12-.07.18-.09.06-.03.12-.05.19-.06.12-.03.25-.03.38 0 .07.01.13.03.19.06.06.02.12.05.17.09.06.04.11.08.16.12.18.19.29.45.29.71 0 .07-.01.13-.02.2-.01.06-.03.12-.06.18-.02.06-.05.12-.09.18l-.12.15c-.05.04-.1.09-.16.12-.05.04-.11.07-.17.09-.06.03-.12.05-.19.06-.06.01-.13.02-.19.02ZM3.5 12.749c-.26 0-.52-.11-.71-.29-.18-.19-.29-.45-.29-.71 0-.26.11-.52.29-.71.28-.28.72-.37 1.09-.21.13.05.23.12.33.21.18.19.29.45.29.71 0 .26-.11.52-.29.71-.19.18-.45.29-.71.29Z"
+                                fill="currentColor"></path>
+                            <path opacity=".4"
+                                d="M20.5 15.498a.75.75 0 1 1 0-1.498.75.75 0 0 1 0 1.498ZM3.5 15.502a.75.75 0 0 1-.69-1.04c.03-.09.09-.17.16-.24.27-.28.78-.28 1.06 0a.776.776 0 0 1 .22.53.776.776 0 0 1-.22.53.75.75 0 0 1-.53.22Z"
+                                fill="currentColor"></path>
+                            <path opacity=".2"
+                                d="M20.5 18c-.07 0-.13-.01-.19-.04a.355.355 0 0 1-.16-.11.47.47 0 0 1-.15-.35.501.501 0 0 1 1 0c0 .13-.05.26-.15.35a.47.47 0 0 1-.35.15ZM3.5 18c-.13 0-.26-.05-.35-.15A.47.47 0 0 1 3 17.5a.501.501 0 0 1 1 0c0 .13-.05.26-.15.35-.09.1-.22.15-.35.15Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M7.75 7a1.357 1.357 0 0 1-.57-.12c-.1-.03-.18-.08-.26-.13a1.516 1.516 0 0 1-.67-1.25c0-.39.16-.78.44-1.06.56-.56 1.56-.56 2.12 0a1.499 1.499 0 0 1-.23 2.31c-.08.05-.17.1-.26.13a1.357 1.357 0 0 1-.57.12ZM16.25 7a1.358 1.358 0 0 1-.57-.12c-.09-.03-.18-.08-.26-.13a2.11 2.11 0 0 1-.23-.19c-.07-.07-.13-.15-.19-.23-.05-.08-.1-.17-.14-.26-.03-.09-.06-.18-.08-.28-.02-.09-.03-.19-.03-.29a1.516 1.516 0 0 1 .67-1.25c.08-.05.17-.1.26-.13a1.417 1.417 0 0 1 1.14 0c.09.03.18.08.26.13a1.516 1.516 0 0 1 .67 1.25c0 .1-.01.2-.03.29-.02.1-.05.19-.08.28-.04.09-.09.18-.14.26-.06.08-.12.16-.19.23s-.15.13-.23.19c-.08.05-.17.1-.26.13a1.358 1.358 0 0 1-.57.12ZM7.75 11.25c-.1 0-.2-.01-.29-.03-.1-.02-.19-.05-.28-.08a1.454 1.454 0 0 1-.49-.33 1.499 1.499 0 0 1 0-2.12c.56-.56 1.56-.56 2.12 0a1.499 1.499 0 0 1-1.06 2.56ZM16.25 11.25a1.358 1.358 0 0 1-.57-.12c-.09-.03-.18-.08-.26-.13-.08-.06-.16-.12-.23-.19s-.13-.15-.19-.23c-.05-.08-.1-.17-.14-.26-.03-.09-.06-.18-.08-.28-.02-.09-.03-.19-.03-.29 0-.39.16-.78.44-1.06.07-.07.15-.13.23-.19.08-.05.17-.1.26-.13a1.417 1.417 0 0 1 1.14 0c.09.03.18.08.26.13a1.516 1.516 0 0 1 .67 1.25c0 .1-.01.2-.03.29-.02.1-.05.19-.08.28-.04.09-.09.18-.14.26-.06.08-.12.16-.19.23s-.15.13-.23.19c-.08.05-.17.1-.26.13a1.358 1.358 0 0 1-.57.12Z"
+                                fill="currentColor"></path>
+                            <path opacity=".6"
+                                d="M7.75 14.75c-.13 0-.26-.03-.38-.08a.933.933 0 0 1-.33-.21c-.09-.1-.16-.21-.21-.33a.995.995 0 0 1-.08-.38c0-.26.11-.52.29-.71.37-.37 1.05-.37 1.42 0 .18.19.29.45.29.71 0 .13-.03.26-.08.38s-.12.23-.21.33c-.19.18-.45.29-.71.29ZM16.25 14.75c-.26 0-.52-.11-.71-.29-.18-.19-.29-.45-.29-.71 0-.26.11-.52.29-.71.37-.37 1.04-.37 1.42 0 .18.19.29.45.29.71 0 .07-.01.13-.02.2-.01.06-.03.12-.06.18-.02.06-.05.12-.09.17-.04.06-.08.11-.12.16-.19.18-.45.29-.71.29Z"
+                                fill="currentColor"></path>
+                            <path opacity=".4"
+                                d="M7.75 17.75a.75.75 0 1 1 0-1.499.75.75 0 0 1 0 1.499ZM16.25 17.75a.776.776 0 0 1-.53-.22.633.633 0 0 1-.16-.24.717.717 0 0 1 0-.58c.04-.09.09-.17.16-.24.07-.07.15-.12.24-.16a.73.73 0 0 1 .58 0c.09.04.17.09.24.16A.776.776 0 0 1 17 17a.776.776 0 0 1-.22.53.75.75 0 0 1-.53.22Z"
+                                fill="currentColor"></path>
+                            <path opacity=".2"
+                                d="M7.75 20c-.13 0-.26-.05-.35-.15a.47.47 0 0 1-.15-.35.501.501 0 0 1 1 0c0 .13-.05.26-.15.35-.09.1-.22.15-.35.15ZM16.25 20c-.07 0-.13-.01-.19-.04a.355.355 0 0 1-.16-.11.355.355 0 0 1-.11-.16.406.406 0 0 1-.04-.19.501.501 0 0 1 1 0c0 .07-.01.13-.04.19-.02.06-.06.12-.11.16a.47.47 0 0 1-.35.15Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="down">Menu Page</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li class="down1"><a href="#">Level 1</a></li>
+                        <li class="down1"><a href="#">Level 2</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="btn-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M12 14.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5ZM7 12.75H5c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h2c.41 0 .75.34.75.75s-.34.75-.75.75ZM19 12.75h-2c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h2c.41 0 .75.34.75.75s-.34.75-.75.75Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="down">Sub Caption</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li class="down1"><a href="#">Level 1</a></li>
+                        <li class="down1"><a href="#">Level 2</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M12 13.75c.41 0 .75-.34.75-.75V8c0-.41-.34-.75-.75-.75s-.75.34-.75.75v5c0 .41.34.75.75.75ZM12.92 15.619c-.05-.12-.12-.23-.21-.33-.1-.09-.21-.16-.33-.21a1 1 0 0 0-.76 0c-.12.05-.23.12-.33.21-.09.1-.16.21-.21.33-.05.12-.08.25-.08.38s.03.26.08.38c.05.13.12.23.21.33.1.09.21.16.33.21.12.05.25.08.38.08s.26-.03.38-.08.23-.12.33-.21c.09-.1.16-.2.21-.33.05-.12.08-.25.08-.38s-.03-.26-.08-.38Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span>Oval Chip</span>
+                    </a>
+                </li>
+                <li class="display-flex">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path opacity=".4"
+                                d="M18 18.862h-.76c-.8 0-1.56.31-2.12.87l-1.71 1.69c-.78.77-2.05.77-2.83 0l-1.71-1.69c-.56-.56-1.33-.87-2.12-.87H6c-1.66 0-3-1.33-3-2.97V4.982c0-1.64 1.34-2.97 3-2.97h12c1.66 0 3 1.33 3 2.97v10.91c0 1.63-1.34 2.97-3 2.97Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M10.38 14.51H7.7c-.44 0-.85-.21-1.11-.57-.25-.34-.31-.76-.19-1.16.35-1.07 1.21-1.65 1.97-2.17.8-.54 1.25-.88 1.25-1.46a.939.939 0 1 0-1.88 0c0 .41-.34.75-.75.75s-.75-.34-.75-.75c0-1.34 1.09-2.44 2.44-2.44 1.35 0 2.44 1.09 2.44 2.44 0 1.41-1.06 2.13-1.91 2.71-.53.36-1.03.7-1.28 1.15h2.44c.41 0 .75.34.75.75s-.33.75-.74.75ZM16.04 14.509c-.41 0-.75-.34-.75-.75v-.69h-1.97c-.49 0-.94-.26-1.19-.68-.25-.43-.25-.96 0-1.38.68-1.17 1.47-2.5 2.19-3.66.32-.51.93-.74 1.5-.58.57.17.97.69.96 1.29v3.52H17c.41 0 .75.34.75.75s-.34.75-.75.75h-.21v.69c0 .41-.33.74-.75.74Zm-.75-5.87c-.59.96-1.2 1.99-1.75 2.93h1.75v-2.93Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span>Documentation</span>
+                    </a>
+                    <!-- <div class="docu-box">
+                        <span>Fire</span>
+                    </div> -->
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M12 18.75c-.41 0-.75-.34-.75-.75v-1c0-.41.34-.75.75-.75s.75.34.75.75v1c0 .41-.34.75-.75.75ZM12 22.75c-.41 0-.75-.34-.75-.75v-1c0-.41.34-.75.75-.75s.75.34.75.75v1c0 .41-.34.75-.75.75ZM1.998 22.748c-.06 0-.12-.01-.18-.02-.4-.1-.65-.51-.55-.91l1-4a.75.75 0 1 1 1.46.36l-1 4c-.09.34-.39.57-.73.57ZM21.999 22.749c-.34 0-.64-.23-.73-.57l-1-4c-.1-.4.14-.81.55-.91.4-.1.81.14.91.55l1 4a.748.748 0 0 1-.73.93Z"
+                                fill="currentColor"></path>
+                            <path opacity=".4"
+                                d="M19.26 9.52c-.11-1.18-.42-2.43-2.71-2.43h-9.1c-2.29 0-2.6 1.26-2.71 2.43l-.4 4.34c-.05.54.13 1.08.5 1.49.38.41.92.65 1.48.65h1.34c1.15 0 1.37-.66 1.52-1.1l.14-.43c.16-.49.2-.61.85-.61h3.65c.64 0 .66.07.85.61l.14.43c.15.44.37 1.1 1.52 1.1h1.34c.56 0 1.1-.24 1.48-.65.37-.4.55-.95.5-1.49l-.39-4.34Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M18.42 4.94h-.72l-.27-1.29c-.26-1.25-.79-2.4-2.92-2.4H9.5c-2.13 0-2.66 1.15-2.92 2.4l-.27 1.29h-.72c-.3 0-.54.24-.54.54 0 .3.24.54.54.54h.51l-.3 1.43c.39-.22.92-.36 1.66-.36h9.1c.74 0 1.28.14 1.66.36l-.3-1.43h.51c.3 0 .54-.24.54-.54a.553.553 0 0 0-.55-.54ZM9.86 11.01H7.72c-.3 0-.54-.24-.54-.54 0-.3.24-.54.54-.54h2.14c.3 0 .54.24.54.54a.55.55 0 0 1-.54.54ZM16.282 11.01h-2.14c-.3 0-.54-.24-.54-.54 0-.3.24-.54.54-.54h2.14c.3 0 .54.24.54.54 0 .3-.24.54-.54.54Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span>Roadmap</span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="sidebar-box">
+                <img src="images/section/download.png" alt="">
+                <h5>Need Support?</h5>
+                <h6>1 Day Response Time</h6>
+                <a href="#">
+                    <div class="side-btn">
+                        <span>Get Supported</span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <header>
+        <div class="container">
+            <div class="row align-item">
+
+                <div class="w-6 display-flex align-item">
+                    <div class="part-1 display-flex align-item">
+                        <div class="toggle-icon">
+                            <a href="#">
+                                <i data-feather="menu"></i>
+                            </a>
+                        </div>
+                        <div class="input display-flex align-item">
+                            <!-- <i data-feather="search"></i> -->
+                            <input type="text" placeholder="ctrl+k">
+                        </div>
+                    </div>
+                </div>
+                <div class="w-6 display-flex align-item flex-end">
+                    <div class="part-2">
+                        <div class="div-icon">
+                            <ul class="display-flex">
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                        fill="none">
+                                        <path opacity=".4" fill-rule="evenodd" clip-rule="evenodd"
+                                            d="m20.8 2.241-8 1.6c-.47.09-.8.5-.8.98v5.18c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-6.78c0-.63-.58-1.1-1.2-.98Z"
+                                            fill="currentColor"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="m20.8 21.76-8-1.6c-.47-.09-.8-.5-.8-.98V14c0-.55.45-1 1-1h8c.55 0 1 .45 1 1v6.78c0 .63-.58 1.1-1.2.98ZM8.79 4.56l-6 1.28c-.46.1-.79.51-.79.98V10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V5.53c0-.63-.59-1.11-1.21-.97Z"
+                                            fill="currentColor"></path>
+                                        <path opacity=".4" fill-rule="evenodd" clip-rule="evenodd"
+                                            d="m8.79 19.44-6-1.28c-.46-.1-.79-.51-.79-.98V14c0-.55.45-1 1-1h6c.55 0 1 .45 1 1v4.47c0 .63-.59 1.11-1.21.97Z"
+                                            fill="currentColor"></path>
+                                    </svg>
+                                </li>
+                                <li class="position">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"
+                                        fill="none">
+                                        <path opacity=".4"
+                                            d="M16.192 2h-8.37c-3.64 0-5.81 2.17-5.81 5.81v8.37c0 3.64 2.17 5.81 5.81 5.81h8.37c3.64 0 5.81-2.17 5.81-5.81V7.81c0-3.64-2.17-5.81-5.81-5.81Z"
+                                            fill="currentColor"></path>
+                                        <path
+                                            d="M16.998 15.97c-1.31 0-2.56-.6-3.56-1.71a8.526 8.526 0 0 0 1.77-4.56h1.78c.41 0 .75-.34.75-.75s-.34-.75-.75-.75h-2.43c-.02 0-.04-.01-.06-.01-.02 0-.04.01-.06.01h-1.69v-.93c0-.41-.34-.75-.75-.75s-.75.34-.75.75v.93h-4.24c-.41 0-.75.34-.75.75s.34.75.75.75h6.69c-.37 3.52-3.23 6.27-6.71 6.27-.41 0-.75.34-.75.75s.34.75.75.75c2.07 0 3.96-.8 5.41-2.11 1.27 1.36 2.88 2.11 4.59 2.11.41 0 .75-.34.75-.75s-.33-.75-.74-.75Z"
+                                            fill="currentColor"></path>
+                                    </svg>
+                                    <ul class="drop-down">
+                                        <li>English (UK)</li>
+                                        <li>française (French)</li>
+                                        <li>Română (Romanian)</li>
+                                        <li>中国人 (chinese)</li>
+                                    </ul>
+                                </li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none">
+                                        <path
+                                            d="m19.34 14.49-1-1.66c-.21-.37-.4-1.07-.4-1.48V8.82a5.91 5.91 0 0 0-3.37-5.33A2.926 2.926 0 0 0 11.99 2c-1.09 0-2.07.59-2.59 1.52-1.95.97-3.3 2.98-3.3 5.3v2.53c0 .41-.19 1.11-.4 1.47l-1.01 1.67c-.4.67-.49 1.41-.24 2.09.24.67.81 1.19 1.55 1.44 1.94.66 3.98.98 6.02.98 2.04 0 4.08-.32 6.02-.97.7-.23 1.24-.76 1.5-1.45s.19-1.45-.2-2.09ZM14.83 20.01A3.014 3.014 0 0 1 12 22c-.79 0-1.57-.32-2.12-.89-.32-.3-.56-.7-.7-1.11.13.02.26.03.4.05.23.03.47.06.71.08.57.05 1.15.08 1.73.08.57 0 1.14-.03 1.7-.08.21-.02.42-.03.62-.06l.49-.06Z"
+                                            fill="currentColor"></path>
+                                    </svg></li>
+                                <li><i data-feather="maximize" id="btnFullscreen"></i></li>
+
+                                <li class="head-logo"><img src="images/logo/header-logo.png" alt=""></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-body col-padding">
+        <div class="container">
+            <div class="row row-gap">
+                <div class="first display-flex">
+                    <div class="w-6">
+                        <div class="head-content">
+                            <h4>Explore Redesigned Able </br> Pro </h4>
+                            <p>The Brand user Interfrence with power of Material-UI</br>Compenents.Explore the Endless
+                                Possiblities with Able Pro.</p>
+                            <div class="btn-2">
+                                <span>Exclusive On Themeforest</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-6">
+                        <img src="images/logo/welcome-banner.00e91560431d20e5c2a8.png" alt="">
+                    </div>
+                </div>
+
+                <div class="w-3">
+                    <div class="earning">
+                        <div class="earning-logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <path
+                                    d="M13 11.15H7M2 11.15V6.53c0-2.04 1.65-3.69 3.69-3.69h5.62c2.04 0 3.69 1.27 3.69 3.31"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path
+                                    d="M17.48 12.2c-.5.48-.74 1.22-.54 1.98.25.93 1.17 1.52 2.13 1.52H20v1.45c0 2.21-1.79 4-4 4H6c-2.21 0-4-1.79-4-4v-7c0-2.21 1.79-4 4-4h10c2.2 0 4 1.8 4 4v1.45h-1.08c-.56 0-1.07.22-1.44.6Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path
+                                    d="M22 12.62v2.06c0 .56-.46 1.02-1.03 1.02h-1.93c-1.08 0-2.07-.79-2.16-1.87-.06-.63.18-1.22.6-1.63.37-.38.88-.6 1.44-.6h2.05c.57 0 1.03.46 1.03 1.02Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                            <h6>All Earnings</h6>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" style="transform: rotate(90deg);">
+                                <path
+                                    d="M5 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2ZM19 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2ZM12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Z"
+                                    stroke="currentColor" stroke-width="1.5"></path>
+                            </svg>
+                        </div>
+                        <div class="earning-chart" id="chart">
+                            <div>
+                                <h5>$3000</h5>
+                                <p>30.6%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-3">
+                    <div class="earning">
+                        <div class="earning-logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <path d="M3.5 18V7c0-4 1-5 5-5h7c4 0 5 1 5 5v10c0 .14 0 .28-.01.42" stroke="#DB970E"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path
+                                    d="M6.35 15H20.5v3.5c0 1.93-1.57 3.5-3.5 3.5H7c-1.93 0-3.5-1.57-3.5-3.5v-.65C3.5 16.28 4.78 15 6.35 15ZM8 7h8M8 10.5h5"
+                                    stroke="#DB970E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </svg>
+                            <h6>All Earnings</h6>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" style="transform: rotate(90deg);">
+                                <path
+                                    d="M5 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2ZM19 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2ZM12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Z"
+                                    stroke="currentColor" stroke-width="1.5"></path>
+                            </svg>
+                        </div>
+                        <div class="earning-chart" id="chart1">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="w-3">
+                    <div class="earning">
+                        <div class="earning-logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <path
+                                    d="M8 2v3M16 2v3M3.5 9.09h17M21 8.5V17c0 3-1.5 5-5 5H8c-3.5 0-5-2-5-5V8.5c0-3 1.5-5 5-5h8c3.5 0 5 2 5 5Z"
+                                    stroke="#137C0D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path
+                                    d="M15.695 13.7h.009M15.695 16.7h.009M11.995 13.7h.01M11.995 16.7h.01M8.294 13.7h.01M8.294 16.7h.01"
+                                    stroke="#137C0D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </svg>
+                            <h6>All Earnings</h6>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" style="transform: rotate(90deg);">
+                                <path
+                                    d="M5 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2ZM19 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2ZM12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Z"
+                                    stroke="currentColor" stroke-width="1.5"></path>
+                            </svg>
+                        </div>
+                        <div class="earning-chart" id="chart2">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="w-3">
+                    <div class="earning">
+                        <div class="earning-logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <path
+                                    d="M8.11 11.85c-2.82.2-2.81 4.3 0 4.5h6.67c.81.01 1.59-.3 2.19-.84 1.98-1.73.92-5.2-1.68-5.53-.93-5.64-9.08-3.5-7.15 1.87"
+                                    stroke="#DB271D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path d="M2 15c0 3.87 3.13 7 7 7l-1.05-1.75M22 9c0-3.87-3.13-7-7-7l1.05 1.75"
+                                    stroke="#DB271D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </svg>
+                            <h6>All Earnings</h6>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" style="transform: rotate(90deg);">
+                                <path
+                                    d="M5 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2ZM19 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2ZM12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Z"
+                                    stroke="currentColor" stroke-width="1.5"></path>
+                            </svg>
+                        </div>
+                        <div class="earning-chart" id="chart3">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-9">
+                    <div class="customer">
+                        <div class="customer-chart" id="chart-2">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-3">
+                    <div class="able-pro">
+                        <h4>Project - Able Pro</h4>
+                        <h3>Release v1.2.0</h3>
+                        <ul>
+                            <li>
+                                <a href="#">Horizontal Layout</a>
+                            </li>
+                            <li>
+                                <a href="#">Invoice Generator</a>
+                            </li>
+                            <li>
+                                <a href="#">Package Upgradesv</a>
+                            </li>
+                            <li>
+                                <a href="#">Figma Auto Layout</a>
+                            </li>
+                        </ul>
+                        <button>
+                            <a href="#">+ Add Task</a>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-9">
+                    <div class="projet-overview">
+                        <div id="projectchart">
+                            <!-- <h5>Project Overview</h5> -->
+
+                        </div>
+                        <div class="w-3"></div>
+                        <div class="w-3"></div>
+                    </div>
+                </div>
+                <div class="w-6">
+                    <div class="transaction">
+
+                    </div>
+                </div>
+                <div class="w-6">
+                    <div class="totalincome">
+                        <div id="chartpie"></div>
+                        <div class="w-4">
+                            <div class="item-1 display-flex">
+
+                            </div>
+                            <div class="item-1">
+
+                            </div>
+                        </div>
+                        <!-- <div class="w-4">
+                            <div class="item-2">
+                                
+                            </div>
+                            <div class="item-2">
+                                
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="map" id="map"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jquery -->
+    <script src="../views/js/apexcharts.js"></script>
+
+    <script src="../views/js/jquery-3.7.1.min.js"></script>
+    <script src="../views/js/jquery-jvectormap-1.1.1.min.js"></script>
+    <script src="../views/js/jquery-jvectormap-world-mill.js"></script>
+    <!-- feather-icon -->
+    <script>
+        feather.replace();
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".toggle-icon").click(function () {
+                $(".side-bar").toggleClass("close-sider");
+                $('.delta li span').toggleClass('di-none');
+
+
+                $('header').toggleClass('left');
+                $('.sidebar-box').toggleClass('sidebox-none');
+                $('.svg').toggleClass('di-none');
+
+                $('.page-body').toggleClass('left');
+            });
+
+            // side-dropdown
+            $('.btn-1').click(function () {
+                $(this).next('.side-dropdown').slideToggle();
+                $('.side-dropdown').not($(this).next()).slideUp();
+            })
+
+            // dropdown
+            $('.position').click(function () {
+                $('.drop-down').toggle();
+            })
+        });
+    </script>
+    <script>
+        function toggleFullscreen(elem) {
+            elem = elem || document.documentElement;
+            if (!document.fullscreenElement && !document.mozFullScreenElement &&
+                !document.webkitFullscreenElement && !document.msFullscreenElement) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                } else if (elem.mozRequestFullScreen) {
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
+            }
+        }
+
+        document.getElementById('btnFullscreen').addEventListener('click', function () {
+            toggleFullscreen();
+        });
+
+        // document.getElementById('exampleImage').addEventListener('click', function () {
+        //     toggleFullscreen(this);
+        // });
+    </script>
+
+    <script>
+        var options = {
+            series: [{
+                name: 'User',
+                data: [10, 30, 40, 20, 60, 50, 20, 15, 20, 25, 30, 25]
+            }],
+            chart: {
+                type: 'bar',
+                toolbar: {
+                    show: false,
+                }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    borderRadius: 4,
+                    // columnWidth: '55%',
+                    // endingShape: 'rounded'
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            legend: {
+                show: false,
+            },
+            stroke: {
+                show: false,
+                width: 2,
+                colors: ['transparent'],
+                curve: 'smooth',
+            },
+            xaxis: {
+                show: false,
+                labels: {
+                    show: false,
+                },
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false,
+                }
+            },
+            yaxis: {
+                show: false
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                show: false,
+                x: {
+                    show: true,
+                },
+                y: {
+                    show: false
+                },
+            },
+            grid: {
+                show: false,
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>
+
+    <script>
+        var options = {
+            series: [{
+                name: 'User',
+                data: [10, 30, 40, 20, 60, 50, 20, 15, 20, 25, 30, 25]
+            }],
+            chart: {
+                type: 'bar',
+                toolbar: {
+                    show: false,
+                }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    borderRadius: 4,
+                    // columnWidth: '55%',
+                    // endingShape: 'rounded'
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            legend: {
+                show: false,
+            },
+            stroke: {
+                show: false,
+                width: 2,
+                colors: ['transparent'],
+                curve: 'smooth',
+            },
+            xaxis: {
+                show: false,
+                labels: {
+                    show: false,
+                },
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false,
+                }
+            },
+            yaxis: {
+                show: false
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                show: false,
+                x: {
+                    show: true,
+                },
+                y: {
+                    show: false
+                },
+            },
+            grid: {
+                show: false,
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart1"), options);
+        chart.render();
+    </script>
+
+    <script>
+        var options = {
+            series: [{
+                name: 'User',
+                data: [10, 30, 40, 20, 60, 50, 20, 15, 20, 25, 30, 25]
+            }],
+            chart: {
+                type: 'bar',
+                toolbar: {
+                    show: false,
+                }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    borderRadius: 4,
+                    // columnWidth: '55%',
+                    // endingShape: 'rounded'
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            legend: {
+                show: false,
+            },
+            stroke: {
+                show: false,
+                width: 2,
+                colors: ['transparent'],
+                curve: 'smooth',
+            },
+            xaxis: {
+                show: false,
+                labels: {
+                    show: false,
+                },
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false,
+                }
+            },
+            yaxis: {
+                show: false
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                show: false,
+                x: {
+                    show: true,
+                },
+                y: {
+                    show: false
+                },
+            },
+            grid: {
+                show: false,
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart2"), options);
+        chart.render();
+    </script>
+
+    <script>
+        var options = {
+            series: [{
+                name: 'User',
+                data: [10, 30, 40, 20, 60, 50, 20, 15, 20, 25, 30, 25]
+            }],
+            chart: {
+                type: 'bar',
+                toolbar: {
+                    show: false,
+                }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    borderRadius: 4,
+                    // columnWidth: '55%',
+                    // endingShape: 'rounded'
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            legend: {
+                show: false,
+            },
+            stroke: {
+                show: false,
+                width: 2,
+                colors: ['transparent'],
+                curve: 'smooth',
+            },
+            xaxis: {
+                show: false,
+                labels: {
+                    show: false,
+                },
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false,
+                }
+            },
+            yaxis: {
+                show: false
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                show: false,
+                x: {
+                    show: true,
+                },
+                y: {
+                    show: false
+                },
+            },
+            grid: {
+                show: false,
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart3"), options);
+        chart.render();
+    </script>
+
+    <script>
+        var options = {
+            series: [{
+                name: 'series1',
+                data: [30, 60, 40, 70, 50, 90, 50, 55, 45, 60, 50, 65]
+            }],
+            chart: {
+                height: 350,
+                type: 'area'
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            xaxis: {
+                type: 'month',
+                categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+            },
+            tooltip: {
+                x: {
+                    format: 'dd/MM/yy HH:mm'
+                },
+            },
+        };
+
+        var chart2 = new ApexCharts(document.querySelector("#chart-2"), options);
+        chart2.render();
+    </script>
+
+    <script>
+        var options = {
+            series: [20, 31, 26, 23],
+            chart: {
+                width: 380,
+                type: 'donut',
+            },
+            plotOptions: {
+                pie: {
+                    startAngle: -90,
+                    endAngle: 270
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                type: 'gradient',
+            },
+            legend: {
+                formatter: function (val, opts) {
+                    return val + " - " + opts.w.globals.series[opts.seriesIndex]
+                }
+            },
+            title: {
+                text: 'Gradient Donut with custom Start-angle'
+            },
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 400
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chartpie"), options);
+        chart.render();
+    </script>
+    <script>
+        var markers = [
+            { latLng: [41.50, -87.37], name: 'Chicago' },
+            { latLng: [32.46, -96.46], name: 'Dallas' },
+            { latLng: [36.10, -115.12], name: 'Las Vegas' },
+            { latLng: [34.3, -118.15], name: 'Los Angeles' },
+            { latLng: [40.43, -74.00], name: 'New York City' },
+            { latLng: [53.412910, -8.243890], name: 'Ireland' },
+            { latLng: [42.697708, 23.321868], name: 'Sofia, Bulgia' },
+            { latLng: [40.014986, -105.270546], name: 'Boulder, CO' }
+        ];
+
+
+        $(function () {
+            $('#map').vectorMap({
+                map: 'world_mill',
+                zoomOnScroll: false,
+                hoverOpacity: 0.7,
+                markerStyle: {
+                    initial: {
+                        fill: '#FFD700',
+                        stroke: '#383f47'
+                    }
+                },
+                markers: markers
+            });
+        });
+
+        function addMapPoint(lat, lon, title) {
+            removeMapPoint();
+            var map = $('#map').vectorMap('get', 'mapObject');
+            map.addMarkers([{ latLng: [lat, lon], name: title }], []);
+        }
+
+        function removeMapPoint() {
+            var map = $('#map').vectorMap('get', 'mapObject');
+            map.removeAllMarkers();
+        }
+
+        function generateRandomLong() {
+            var num = (Math.random() * 180).toFixed(3);
+            var posorneg = Math.floor(Math.random());
+            if (posorneg == 0) {
+                num = num * -1;
+            }
+            return num;
+        }
+
+        function generateRandomLat() {
+            var num = (Math.random() * 90).toFixed(3);
+            var posorneg = Math.floor(Math.random());
+            if (posorneg == 0) {
+                num = num * -1;
+            }
+            return num;
+        }
+
+        window.setInterval(function () {
+            var lon = generateRandomLong();
+            var lat = generateRandomLat();
+
+            addMapPoint(lat, lon, lat + "," + lon);
+        }, 2500);
+    </script>
+</body>
+
+</html>
