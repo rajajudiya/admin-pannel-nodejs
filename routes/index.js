@@ -11,6 +11,6 @@ router.get('/register',reg.register);
 router.post('/register',reg.registerdata)
 
 router.get('/login', log.login);
-// router.post('/login',log.)
+router.post('/login',log.logindata);
 
 module.exports = router;

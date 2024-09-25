@@ -1,5 +1,4 @@
 const usermodel = require('../models/usermodel');
-const model = require('../models/usermodel');
 const bcrypt = require('bcrypt');
 const saltround = 10;
 
@@ -22,7 +21,7 @@ const registerdata = async (req, res) => {
             
             const users = await user.save();
 
-            res.cookie('user',users);
+            // res.cookie('user',users);
 
             console.log(users);
 
