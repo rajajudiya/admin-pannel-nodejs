@@ -12,7 +12,7 @@ const logindata = async (req, res) => {
     const users = await model.find({ email: req.body.email });
     console.log(users);
     
-    bcrypt.compare(req.body.password, user[0].password, (err, result) => {
+    bcrypt.compare(req.body.password, users[0].password, (err, result) => {
         if (!err) {
             res.redirect('/');
         } else {

@@ -9,6 +9,7 @@ const router = require('./routes/index.js');
 const bodyParser = require('body-parser')
 const cookie = require('cookie-parser');
 const bcrypt = require('bcrypt');
+const db = require('./db/database.js');
 
 app.set('view engine', 'ejs');
 app.set('views', Path);
