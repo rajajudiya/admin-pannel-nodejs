@@ -7,7 +7,7 @@ const register = (req, res) => {
 }
 
 const registerdata = async (req, res) => {
-    console.log(req.body);
+    console.log("jhj", req.body);
 
     if (req.body.password === req.body.con_password) {
 
@@ -25,9 +25,9 @@ const registerdata = async (req, res) => {
                 console.log("users", users);
 
                 res.redirect('/');
-                
+
             } catch (error) {
-                res.redirect('/login');
+                res.redirect('/login');``
             }
         })
     } else {

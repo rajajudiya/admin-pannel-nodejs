@@ -7,10 +7,10 @@ const log = require('../controllers/login');
 
 router.get('/', con.homecon);
 
-router.get('/register',reg.register);
-router.post('/register',reg.registerdata)
+router.get('/register', reg.register);
+router.post('/register', reg.registerdata)
 
 router.get('/login', log.login);
-router.post('/login',log.logindata);
+router.post('/login', log.logindata);
 
 module.exports = router;
