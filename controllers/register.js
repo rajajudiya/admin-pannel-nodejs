@@ -27,7 +27,7 @@ const registerdata = async (req, res) => {
                 res.redirect('/');
 
             } catch (error) {
-                res.redirect('/login');``
+                res.redirect('/login');
             }
         })
     } else {

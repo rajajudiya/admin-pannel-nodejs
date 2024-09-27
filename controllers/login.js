@@ -3,28 +3,28 @@ const bcrypt = require('bcrypt');
 
 
 const login = (req, res) => {
-    res.render('login.ejs')
+    res.render('login')
 }
 
 const logindata = async (req, res) => {
     console.log(req.body);
 
-    const users = await usermodel.find({ email: req.body.email });
-    console.log("usersData", users);
+    const usersData = await usermodel.find({ email: req.body.email });
+    console.log("usersData", usersData);
 
-    if (users.length > 0) {
+    if (usersData.length > 0) {
 
-        bcrypt.compare(req.body.password, users[0].password, (err, result) => {
+        bcrypt.compare(req.body.password, usersData[0].password, (err, result) => {
 
             if (!err) {
-                res.cookie("userId", users[0]._id.toString())
+                res.cookie("userId", usersData[0]._id.toString())
                 res.redirect('/');
             } else {
-                res.redirect('/register');
+                res.redirect('/login');
             }
 
         });
-  
+
     } else {
         res.redirect("register")
     }

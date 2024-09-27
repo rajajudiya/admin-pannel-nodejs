@@ -59,7 +59,7 @@ var options = {
         },
         grid: {
             show: false,
-        }
+        },
     };
 
     var chart = new ApexCharts(document.querySelector("#chart"), options);
